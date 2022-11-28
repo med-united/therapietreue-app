@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pc-api-8881187412834722337-843",
+  "private_key_id": "21af1ec5cb4ac40565b3840f3e8a80ba9d116b40",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC/rEqqLahGRjVi\n+YnAIPOT1aKg4zHh9U6Zg4ETz7KV3EQ+iqHtM61/ytl8rC9VxftHOrHXIRBlK7Cd\n7Yo7thOC6lyzRn4hnR1sQ8IlSyy/PBJLoeUDXdQ4NEl3W6KXjmJqCC64zLtU4QU9\nyXg7enPcZ7XoiQbXzaFMJLDX93G9aNYJTAkWiBug69vTI9XVEYQN8Da3Kwo36ZtT\nfSjl8hnn4AWmrRtEy2EE8g1BB5PQo4TqLD3yXD1CAAs5ovTs4qTVuqUNk8RNYmUZ\nMjt6G+wmzPQInzqPv9sLwG8XFrijJZsTQuDbv3TVqkktPiH3XWvRm/f5YIz2fdq/\n+M6LsW6hAgMBAAECggEABRbh5qc5Xsr8yOjU/7KASo5zd9qAgmjykitGkUxEXYFQ\nmJPdcoBwR2058tBZnhPt36QkgRCs2vAwNjP5UIDoVLi8sbqZ8nI1tqBioSiKrXXp\nYHO8h9HafDbl39L25sJORQAm9BuPj9SSazkUcF6IgV40Rifj9B/5e/LvdSnqAxGf\n8raktU3nKJmwiCfUVtDmru2MqNP+MjgAAoABcFUU+o+G+xURmlBeeE9rS6+mC8Vl\nI+bUwjJ8JffWdYJNPWReWD1lj8IMR1693a9yv5IgbCXYTntd1P3DSHkJlB8hgbHj\ny7oldS5O6wiSyZVlew3LiPewz84kxG9frWwkmmLEZwKBgQDnxxtPPn4Iy7Ole+kp\nXER3QOHM/UB2YXELPgRzwbwU8Dv3++4KwLkS3YMJAG6yHwL3xfYlIQ+oPh1PPaxQ\n4cIUfaxfFVdUPKKxE7GASUf/JuE0F59NMb8s+QCAgOOIYzok6kPODNNJq7CNcETI\nOH9Et+ygvA+1xqmqseuoFBWJ/wKBgQDTtDzsXDQUYIhkwMDwZFEoMGV9mrsIOLaP\nw971rI58eaNiofxiFRqZkmBKMFMwlRiVYpdW0j57ZmdqdR8C1DB3V+wTC8kxwDnx\ngCw/29b92kta4E0wRnNjIkWgAV1wnMmT+3L4hm450y40ixm0sV3PA9R+nf/rCRGK\noez6WpLHXwKBgDFy2zK25HC/9N3TZ9U5KCpBH2t6hGw9Mb7yRkTkClp1PnYTu59z\nqoiJ1dDv1K4Py7RM+czGFu8QAXTMdZzz7VIt1b6bcPw5y4P37aCvAbs/8kAI4iW3\n/U98+ExyMxkAAoGpsTmept1K0en7D9GfrBdfHg7U0I05iy0ttFcxob7FAoGAdqiW\nYTCI7EbzC+3R9qtzpaACsrUQUdpf0RLLHE48it4uyrDaYitL/nnByLNvXVKkNc7N\n3pb2+Hl8S3ocCJzgEXRRWJeJjH4evBLIOn7A8QXyqJwCB6XlNNJXzggV1HG8tloA\npfXLQFPymPbCULn9R3PxHYr3j0hE8bwytFwh2ucCgYAfRGBrO/4xh1VgjaxEcQhh\nMV/Dthq+SLWmSNIiOOXh2YS65RnLdcpdU73RrLtXInmQlfJD/PplnsG7T23aTjHp\n18AnpNZbTmUmuHlpOOiP+DIr9balDeq8PhoBtmnVUCNC+R4bMBfupZQpwyx5oy1O\nXJwsvof6kZd6R1z1al1vZA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ficus-fastlane@pc-api-8881187412834722337-843.iam.gserviceaccount.com",
+  "client_id": "112616444749468339387",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ficus-fastlane%40pc-api-8881187412834722337-843.iam.gserviceaccount.com"
+}

@@ -1,0 +1,10 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+    builders:
+      json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: true
+          any_map: true
