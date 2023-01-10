@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
 import 'package:majascan/majascan.dart';
@@ -161,14 +161,27 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
           ),
         ),
         actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            child: Icon(
-              Icons.settings,
-              size: 32,
-              color: ThemeColors.primaryColor,
+          /*   GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: () {
+              DateTime now = DateTime.now();
+              DateTime schedule = DateTime(now.year, now.month, now.day, 21);
+              ref.read(localNotificationProvider).scheduleNotification(
+                  schedule,
+                  int.parse("0"),
+                  "Therapietreue Wichtig!!",
+                  "Medikationseinnahme: Test LOL");
+              showDebugErrorToast("Done");
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              child: Icon(
+                Icons.settings,
+                size: 32,
+                color: ThemeColors.primaryColor,
+              ),
             ),
-          )
+          ) */
         ],
         bottom: PreferredSize(
             preferredSize: const Size.fromHeight(4.0),
@@ -210,6 +223,9 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                           const UserDetailScreen()))
                                   .then((value) => setState(() {
                                         //   showDebugErrorToast(path);
+                                        FocusManager.instance.primaryFocus
+                                            ?.unfocus();
+
                                         path = path;
                                       }));
                             },
@@ -250,6 +266,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                       hint: "Suche",
                       onEditingComplete: (text) {
                         showFeatureDisabledDialog(context);
+                        FocusManager.instance.primaryFocus?.unfocus();
                       },
                       controller: TextEditingController(),
                     ),
@@ -434,6 +451,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                         }
 
                         for (int i = 0; i < 7; i++) {
+                          print("fwfefrw");
                           DateTime now = DateTime.now();
 
                           for (Medication medication
@@ -441,47 +459,49 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             DateTime? schedule;
 
                             if (medication.amountMorning != 0) {
-                              schedule =
-                                  DateTime(now.year, now.month, now.day + i, 8);
+                              print("fwfefrw$i");
+
+                              schedule = DateTime(
+                                  now.year, now.month, now.day + i, 8, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
                                       schedule,
-                                      int.parse(medication.id ?? "0"),
-                                      "Therapietreue Wichtig!",
+                                      Random().nextInt(1000000),
+                                      "Therapietreue Wichtig!!",
                                       "Medikationseinnahme: ${medication.amountMorning} x ${medication.name} jetzt einnehmen!");
                             }
                             if (medication.amountMidday != 0) {
                               schedule = DateTime(
-                                  now.year, now.month, now.day + i, 12);
+                                  now.year, now.month, now.day + i, 12, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
                                       schedule,
-                                      int.parse(medication.id ?? "0"),
-                                      "Therapietreue Wichtig!",
+                                      Random().nextInt(1000000),
+                                      "Therapietreue Wichtig!!",
                                       "Medikationseinnahme: ${medication.amountMidday} x ${medication.name} jetzt einnehmen!");
                             }
                             if (medication.amountEvening != 0) {
                               schedule = DateTime(
-                                  now.year, now.month, now.day + i, 18);
+                                  now.year, now.month, now.day + i, 18, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
                                       schedule,
-                                      int.parse(medication.id ?? "0"),
-                                      "Therapietreue Wichtig!",
+                                      Random().nextInt(1000000),
+                                      "Therapietreue Wichtig!!",
                                       "Medikationseinnahme: ${medication.amountEvening} x ${medication.name} jetzt einnehmen!");
                             }
                             if (medication.amountNight != 0) {
                               schedule = DateTime(
-                                  now.year, now.month, now.day + i, 21);
+                                  now.year, now.month, now.day + i, 21, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
                                       schedule,
-                                      int.parse(medication.id ?? "0"),
-                                      "Therapietreue Wichtig!",
+                                      Random().nextInt(1000000),
+                                      "Therapietreue Wichtig!!",
                                       "Medikationseinnahme: ${medication.amountNight} x ${medication.name} jetzt einnehmen!");
                             }
                           }
@@ -826,18 +846,31 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                   child: GestureDetector(
                                     behavior: HitTestBehavior.translucent,
                                     onTap: () async {
-                                      String barcodeScanRes =
-                                          await FlutterBarcodeScanner
+                                      String? barcodeScanRes =
+                                          await MajaScan.startScan(
+                                              title: "PZN-Scanner",
+                                              barColor: Colors.white,
+                                              titleColor:
+                                                  ThemeColors.primaryColor,
+                                              qRCornerColor: ThemeColors
+                                                  .secondaryColorDark,
+                                              qRScannerColor:
+                                                  ThemeColors.secondaryColor,
+                                              flashlightEnable: true,
+                                              scanAreaScale: 0.7);
+
+                                      print(barcodeScanRes);
+                                      /*        await FlutterBarcodeScanner
                                               .scanBarcode(
                                                   "#ff6666",
                                                   "Abbrechen",
                                                   true,
-                                                  ScanMode.BARCODE);
+                                                  ScanMode.BARCODE); */
 
                                       if (barcodeScanRes != "-1") {
                                         // showDebugErrorToast(barcodeScanRes);
                                         barcodeScanRes =
-                                            barcodeScanRes.replaceAll("-", "");
+                                            barcodeScanRes?.replaceAll("-", "");
                                         Response resp = await http.get(Uri.parse(
                                             'https://medication.med-united.health/ajax/search/drugs/auto/?query=$barcodeScanRes'));
 

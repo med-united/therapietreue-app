@@ -56,11 +56,11 @@ class MyApp extends StatelessWidget {
           .read(localNotificationProvider)
           .init((p0, p1, p2, p3) {}, (notificationResponse) {})
           .then((value) async {
-        ref.read(localNotificationProvider).scheduleNotification(
+        /*    ref.read(localNotificationProvider).scheduleNotification(
             DateTime.now().add(const Duration(seconds: 5)),
             int.parse("0"),
             "Therapietreue Wichtig!",
-            "Medikationseinnahme: Ramipril jetzt einnehmen!");
+            "Medikationseinnahme: Ramipril jetzt einnehmen!"); */
       });
 
       return PlatformProvider(
