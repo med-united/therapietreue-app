@@ -20,13 +20,13 @@ class _HomeState extends ConsumerState<Home> {
     Scaffold(
       body: Center(
           child: Container(
-        margin: const EdgeInsets.all(32),
-        child: ThemePrimaryButton(
-          onPressed: () async {},
-          title: "Keycloak Login",
-          textColor: Colors.white,
-        ),
-      )),
+            margin: const EdgeInsets.all(32),
+            child: ThemePrimaryButton(
+              onPressed: () async {},
+              title: "Keycloak Login",
+              textColor: Colors.white,
+            ),
+          )),
     )
   ];
 
@@ -37,20 +37,20 @@ class _HomeState extends ConsumerState<Home> {
         body: SafeArea(
           bottom: false,
           child: tabs[tabIndex],
-        ),
-        bottomNavigationBar: CupertinoTabBar(
-          onTap: changeTab,
-          currentIndex: tabIndex,
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.medical_information_outlined)),
-            BottomNavigationBarItem(
-                icon: Icon(
-              Icons.medication_liquid,
-              color: Colors.transparent,
-            ))
-          ],
-        ));
+        )//,
+        // bottomNavigationBar: CupertinoTabBar(
+        // onTap: changeTab,
+        // currentIndex: tabIndex,
+        // items: const [
+        //   BottomNavigationBarItem(
+        //       icon: Icon(Icons.medical_information_outlined)),
+        //   BottomNavigationBarItem(
+        //       icon: Icon(
+        //         Icons.medication_liquid,
+        //         color: Colors.transparent,
+        //       ))
+        // ],)
+    );
   }
 
   void changeTab(int index) {
