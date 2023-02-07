@@ -1,0 +1,575 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="de.medunited.therapietreu"
+4    android:versionCode="8"
+5    android:versionName="1.0.8" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:3:6-67
+11-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:3:23-65
+12
+13    <queries>
+13-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:4:1-10:11
+14        <intent>
+14-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:5:5-9:14
+15            <action android:name="android.intent.action.VIEW" />
+15-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:9-61
+15-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:17-58
+16
+17            <category android:name="android.intent.category.BROWSABLE" />
+17-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:9-70
+17-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:19-67
+18
+19            <data android:scheme="https" />
+19-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:9-40
+19-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:15-37
+20        </intent>
+21    </queries>
+22
+23    <uses-permission android:name="android.permission.WAKE_LOCK" />
+23-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-68
+23-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-65
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Permissions options for the `notification` group -->
+24-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-79
+24-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-76
+25    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+25-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-77
+25-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-74
+26    <uses-permission android:name="android.permission.CAMERA" />
+26-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-65
+26-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-62
+27
+28    <uses-feature android:name="android.hardware.camera" />
+28-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-60
+28-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:12:19-57
+29    <uses-feature android:name="android.hardware.camera.autofocus" />
+29-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-70
+29-->[:majascan] /home/beatriz/Documents/therapietreue-app/build/majascan/intermediates/merged_manifest/release/AndroidManifest.xml:13:19-67
+30
+31    <uses-permission android:name="android.permission.FLASHLIGHT" />
+31-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:13:5-69
+31-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:13:22-66
+32    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+32-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-81
+32-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-78
+33    <uses-permission android:name="android.permission.VIBRATE" />
+33-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-66
+33-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-63
+34    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+34-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-81
+34-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-78
+35    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+35-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:5-79
+35-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:12:22-76
+36    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+36-->[com.google.firebase:firebase-iid:21.1.0] /home/beatriz/.gradle/caches/transforms-3/b88ed1018c8aaed9c63957bf5076091d/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:5-82
+36-->[com.google.firebase:firebase-iid:21.1.0] /home/beatriz/.gradle/caches/transforms-3/b88ed1018c8aaed9c63957bf5076091d/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:26:22-79
+37
+38    <application
+39        android:name="android.app.Application"
+39-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:13:9-42
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.8.0] /home/beatriz/.gradle/caches/transforms-3/d363e3b5616f580c766e3e2b3c05f27d/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+41        android:icon="@mipmap/ic_launcher"
+41-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:14:9-43
+42        android:label="Therapietreue"
+42-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:12:9-38
+43        android:largeHeap="true"
+43-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-33
+44        android:theme="@style/Theme.AppCompat.NoActionBar" >
+44-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:17:9-59
+45        <activity android:name="com.djgeo.majascan.g_scanner.QrCodeScannerActivity" />
+45-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:15:9-86
+45-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:15:19-84
+46        <activity
+46-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:16:9-39:20
+47            android:name="de.medunited.therapietreu.MainActivity"
+47-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:17:13-41
+48            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+48-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:23:13-163
+49            android:exported="true"
+49-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:20:13-36
+50            android:hardwareAccelerated="true"
+50-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:24:13-47
+51            android:launchMode="singleTop"
+51-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:21:13-43
+52            android:showWhenLocked="true"
+52-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:18:13-42
+53            android:theme="@style/LaunchTheme"
+53-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:22:13-47
+54            android:turnScreenOn="true"
+54-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:19:13-40
+55            android:windowSoftInputMode="adjustResize" >
+55-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:25:13-55
+56
+57            <!--
+58                 Specifies an Android theme to apply to this Activity as soon as
+59                 the Android process has started. This theme is visible to the user
+60                 while the Flutter UI initializes. After that, this theme continues
+61                 to determine the Window background behind the Flutter UI.
+62            -->
+63            <meta-data
+63-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:30:13-33:17
+64                android:name="io.flutter.embedding.android.NormalTheme"
+64-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:31:15-70
+65                android:resource="@style/NormalTheme" />
+65-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:32:15-52
+66
+67            <intent-filter>
+67-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:35:13-38:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:36:17-68
+68-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:36:25-66
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:37:17-76
+70-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:37:27-74
+71            </intent-filter>
+72        </activity>
+73        <!--
+74             Don't delete the meta-data below.
+75             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+76        -->
+77        <meta-data
+77-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:42:9-44:33
+78            android:name="flutterEmbedding"
+78-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:43:13-44
+79            android:value="2" />
+79-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:44:13-30
+80
+81        <service
+81-->[:cloud_firestore] /home/beatriz/Documents/therapietreue-app/build/cloud_firestore/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-14:19
+82            android:name="com.google.firebase.components.ComponentDiscoveryService"
+82-->[:cloud_firestore] /home/beatriz/Documents/therapietreue-app/build/cloud_firestore/intermediates/merged_manifest/release/AndroidManifest.xml:10:18-89
+83            android:directBootAware="true"
+83-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:34:13-43
+84            android:exported="false" >
+84-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:66:13-37
+85            <meta-data
+85-->[:cloud_firestore] /home/beatriz/Documents/therapietreue-app/build/cloud_firestore/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+86-->[:cloud_firestore] /home/beatriz/Documents/therapietreue-app/build/cloud_firestore/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-134
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[:cloud_firestore] /home/beatriz/Documents/therapietreue-app/build/cloud_firestore/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+88            <meta-data
+88-->[:cloud_functions] /home/beatriz/Documents/therapietreue-app/build/cloud_functions/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+89                android:name="com.google.firebase.components:io.flutter.plugins.firebase.functions.FlutterFirebaseAppRegistrar"
+89-->[:cloud_functions] /home/beatriz/Documents/therapietreue-app/build/cloud_functions/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-128
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[:cloud_functions] /home/beatriz/Documents/therapietreue-app/build/cloud_functions/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+91            <meta-data
+91-->[:firebase_auth] /home/beatriz/Documents/therapietreue-app/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+92                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+92-->[:firebase_auth] /home/beatriz/Documents/therapietreue-app/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[:firebase_auth] /home/beatriz/Documents/therapietreue-app/build/firebase_auth/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+94            <meta-data
+94-->[:firebase_storage] /home/beatriz/Documents/therapietreue-app/build/firebase_storage/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+95                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+95-->[:firebase_storage] /home/beatriz/Documents/therapietreue-app/build/firebase_storage/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-126
+96                android:value="com.google.firebase.components.ComponentRegistrar" />
+96-->[:firebase_storage] /home/beatriz/Documents/therapietreue-app/build/firebase_storage/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+97            <meta-data
+97-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-40:85
+98                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+98-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:39:17-128
+99                android:value="com.google.firebase.components.ComponentRegistrar" />
+99-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:40:17-82
+100            <meta-data
+100-->[:firebase_core] /home/beatriz/Documents/therapietreue-app/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-13:85
+101                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+101-->[:firebase_core] /home/beatriz/Documents/therapietreue-app/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:12:17-124
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[:firebase_core] /home/beatriz/Documents/therapietreue-app/build/firebase_core/intermediates/merged_manifest/release/AndroidManifest.xml:13:17-82
+103            <meta-data
+103-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:67:13-69:85
+104                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+104-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:68:17-109
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:69:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-functions:20.2.0] /home/beatriz/.gradle/caches/transforms-3/a6fb4ba8468af5d38b07b7fe323c52f9/transformed/jetified-firebase-functions-20.2.0/AndroidManifest.xml:17:13-19:85
+107                android:name="com.google.firebase.components:com.google.firebase.functions.FunctionsRegistrar"
+107-->[com.google.firebase:firebase-functions:20.2.0] /home/beatriz/.gradle/caches/transforms-3/a6fb4ba8468af5d38b07b7fe323c52f9/transformed/jetified-firebase-functions-20.2.0/AndroidManifest.xml:18:17-111
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-functions:20.2.0] /home/beatriz/.gradle/caches/transforms-3/a6fb4ba8468af5d38b07b7fe323c52f9/transformed/jetified-firebase-functions-20.2.0/AndroidManifest.xml:19:17-82
+109            <meta-data
+109-->[com.google.firebase:firebase-iid:21.1.0] /home/beatriz/.gradle/caches/transforms-3/b88ed1018c8aaed9c63957bf5076091d/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+110                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+110-->[com.google.firebase:firebase-iid:21.1.0] /home/beatriz/.gradle/caches/transforms-3/b88ed1018c8aaed9c63957bf5076091d/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+111                android:value="com.google.firebase.components.ComponentRegistrar" />
+111-->[com.google.firebase:firebase-iid:21.1.0] /home/beatriz/.gradle/caches/transforms-3/b88ed1018c8aaed9c63957bf5076091d/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+112            <meta-data
+112-->[com.google.firebase:firebase-firestore:24.4.0] /home/beatriz/.gradle/caches/transforms-3/d113a99fde888a0c7352df9a6b5c65bb/transformed/jetified-firebase-firestore-24.4.0/AndroidManifest.xml:19:13-21:85
+113                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+113-->[com.google.firebase:firebase-firestore:24.4.0] /home/beatriz/.gradle/caches/transforms-3/d113a99fde888a0c7352df9a6b5c65bb/transformed/jetified-firebase-firestore-24.4.0/AndroidManifest.xml:20:17-111
+114                android:value="com.google.firebase.components.ComponentRegistrar" />
+114-->[com.google.firebase:firebase-firestore:24.4.0] /home/beatriz/.gradle/caches/transforms-3/d113a99fde888a0c7352df9a6b5c65bb/transformed/jetified-firebase-firestore-24.4.0/AndroidManifest.xml:21:17-82
+115            <meta-data
+115-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:55:13-57:85
+116                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+116-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:56:17-119
+117                android:value="com.google.firebase.components.ComponentRegistrar" />
+117-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:57:17-82
+118            <meta-data
+118-->[com.google.firebase:firebase-storage:20.1.0] /home/beatriz/.gradle/caches/transforms-3/9446be040c8f157c2f0e8090503dd6c3/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:32:13-34:85
+119                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+119-->[com.google.firebase:firebase-storage:20.1.0] /home/beatriz/.gradle/caches/transforms-3/9446be040c8f157c2f0e8090503dd6c3/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:33:17-107
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-storage:20.1.0] /home/beatriz/.gradle/caches/transforms-3/9446be040c8f157c2f0e8090503dd6c3/transformed/jetified-firebase-storage-20.1.0/AndroidManifest.xml:34:17-82
+121            <meta-data
+121-->[com.google.firebase:firebase-installations:17.1.0] /home/beatriz/.gradle/caches/transforms-3/cf2530c0f139726a53229b3fb2b93ae8/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:17:13-19:85
+122                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+122-->[com.google.firebase:firebase-installations:17.1.0] /home/beatriz/.gradle/caches/transforms-3/cf2530c0f139726a53229b3fb2b93ae8/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:18:17-127
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-installations:17.1.0] /home/beatriz/.gradle/caches/transforms-3/cf2530c0f139726a53229b3fb2b93ae8/transformed/jetified-firebase-installations-17.1.0/AndroidManifest.xml:19:17-82
+124            <meta-data
+124-->[com.google.firebase:firebase-datatransport:18.1.7] /home/beatriz/.gradle/caches/transforms-3/86163f826fa791706f81b7f9c975ba06/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+125                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+125-->[com.google.firebase:firebase-datatransport:18.1.7] /home/beatriz/.gradle/caches/transforms-3/86163f826fa791706f81b7f9c975ba06/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[com.google.firebase:firebase-datatransport:18.1.7] /home/beatriz/.gradle/caches/transforms-3/86163f826fa791706f81b7f9c975ba06/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+127        </service>
+128        <service
+128-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-19:72
+129            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+129-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-107
+130            android:exported="false"
+130-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+131            android:permission="android.permission.BIND_JOB_SERVICE" />
+131-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-69
+132        <service
+132-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:20:9-26:19
+133            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+133-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-97
+134            android:exported="false" >
+134-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-37
+135            <intent-filter>
+135-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+136                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+136-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+136-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+137            </intent-filter>
+138        </service>
+139
+140        <receiver
+140-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:28:9-35:20
+141            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+141-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-98
+142            android:exported="true"
+142-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:30:13-36
+143            android:permission="com.google.android.c2dm.permission.SEND" >
+143-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-73
+144            <intent-filter>
+144-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+145                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+145-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+145-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+146            </intent-filter>
+147        </receiver>
+148
+149        <provider
+149-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:43:9-47:38
+150            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+150-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:44:13-102
+151            android:authorities="de.medunited.therapietreu.flutterfirebasemessaginginitprovider"
+151-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:45:13-88
+152            android:exported="false"
+152-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:46:13-37
+153            android:initOrder="99" />
+153-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:47:13-35
+154
+155        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
+155-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:18:9-91
+155-->[:flutter_barcode_scanner] /home/beatriz/Documents/therapietreue-app/build/flutter_barcode_scanner/intermediates/merged_manifest/release/AndroidManifest.xml:18:19-88
+156
+157        <provider
+157-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-18:20
+158            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+158-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-82
+159            android:authorities="de.medunited.therapietreu.flutter.image_provider"
+159-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-74
+160            android:exported="false"
+160-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-37
+161            android:grantUriPermissions="true" >
+161-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-47
+162            <meta-data
+162-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-17:75
+163                android:name="android.support.FILE_PROVIDER_PATHS"
+163-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:16:17-67
+164                android:resource="@xml/flutter_image_picker_file_paths" />
+164-->[:image_picker_android] /home/beatriz/Documents/therapietreue-app/build/image_picker_android/intermediates/merged_manifest/release/AndroidManifest.xml:17:17-72
+165        </provider>
+166
+167        <receiver
+167-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-18:40
+168            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
+168-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-91
+169            android:exported="false" />
+169-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+170        <receiver
+170-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:19:9-21:40
+171            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+171-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-97
+172            android:exported="false" />
+172-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:21:13-37
+173        <receiver
+173-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:22:9-31:20
+174            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+174-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-101
+175            android:exported="false" >
+175-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-37
+176            <intent-filter>
+176-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-30:29
+177                <action android:name="android.intent.action.BOOT_COMPLETED" />
+177-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:17-79
+177-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:26:25-76
+178                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+178-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:17-84
+178-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:27:25-81
+179                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+179-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-82
+179-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-79
+180                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+180-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:17-82
+180-->[:flutter_local_notifications] /home/beatriz/Documents/therapietreue-app/build/flutter_local_notifications/intermediates/merged_manifest/release/AndroidManifest.xml:29:25-79
+181            </intent-filter>
+182        </receiver>
+183
+184        <activity
+184-->[:url_launcher_android] /home/beatriz/Documents/therapietreue-app/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-13:74
+185            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+185-->[:url_launcher_android] /home/beatriz/Documents/therapietreue-app/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-74
+186            android:exported="false"
+186-->[:url_launcher_android] /home/beatriz/Documents/therapietreue-app/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-37
+187            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+187-->[:url_launcher_android] /home/beatriz/Documents/therapietreue-app/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-71
+188
+189        <uses-library
+189-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+190            android:name="androidx.window.extensions"
+190-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+191            android:required="false" />
+191-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+192        <uses-library
+192-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+193            android:name="androidx.window.sidecar"
+193-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+194            android:required="false" />
+194-->[androidx.window:window:1.0.0-beta04] /home/beatriz/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+195
+196        <activity
+196-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:27:9-44:20
+197            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+197-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:28:13-80
+198            android:excludeFromRecents="true"
+198-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:29:13-46
+199            android:exported="true"
+199-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:30:13-36
+200            android:launchMode="singleTask"
+200-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:31:13-44
+201            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+201-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:32:13-72
+202            <intent-filter>
+202-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:33:13-43:29
+203                <action android:name="android.intent.action.VIEW" />
+203-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:9-61
+203-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:17-58
+204
+205                <category android:name="android.intent.category.DEFAULT" />
+205-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:36:17-76
+205-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:36:27-73
+206                <category android:name="android.intent.category.BROWSABLE" />
+206-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:9-70
+206-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:19-67
+207
+208                <data
+208-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:9-40
+209                    android:host="firebase.auth"
+210                    android:path="/"
+211                    android:scheme="genericidp" />
+211-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:15-37
+212            </intent-filter>
+213        </activity>
+214        <activity
+214-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:45:9-62:20
+215            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+215-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:46:13-79
+216            android:excludeFromRecents="true"
+216-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:47:13-46
+217            android:exported="true"
+217-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:48:13-36
+218            android:launchMode="singleTask"
+218-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:49:13-44
+219            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+219-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:50:13-72
+220            <intent-filter>
+220-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:51:13-61:29
+221                <action android:name="android.intent.action.VIEW" />
+221-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:9-61
+221-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:6:17-58
+222
+223                <category android:name="android.intent.category.DEFAULT" />
+223-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:36:17-76
+223-->[com.google.firebase:firebase-auth:21.1.0] /home/beatriz/.gradle/caches/transforms-3/ea126544dbffa99310ce648c295a384a/transformed/jetified-firebase-auth-21.1.0/AndroidManifest.xml:36:27-73
+224                <category android:name="android.intent.category.BROWSABLE" />
+224-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:9-70
+224-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:7:19-67
+225
+226                <data
+226-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:9-40
+227                    android:host="firebase.auth"
+228                    android:path="/"
+229                    android:scheme="recaptcha" />
+229-->/home/beatriz/Documents/therapietreue-app/android/app/src/main/AndroidManifest.xml:8:15-37
+230            </intent-filter>
+231        </activity>
+232
+233        <receiver
+233-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:31:9-38:20
+234            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+234-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:32:13-78
+235            android:exported="true"
+235-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:33:13-36
+236            android:permission="com.google.android.c2dm.permission.SEND" >
+236-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:34:13-73
+237            <intent-filter>
+237-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-34:29
+238                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+238-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:17-81
+238-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:33:25-78
+239            </intent-filter>
+240        </receiver>
+241        <!--
+242             FirebaseMessagingService performs security checks at runtime,
+243             but set to not exported to explicitly avoid allowing another app to call it.
+244        -->
+245        <service
+245-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:44:9-51:19
+246            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+246-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:45:13-82
+247            android:directBootAware="true"
+247-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:46:13-43
+248            android:exported="false" >
+248-->[com.google.firebase:firebase-messaging:23.1.0] /home/beatriz/.gradle/caches/transforms-3/33e22966982a4d3a8059781ef0b6a371/transformed/jetified-firebase-messaging-23.1.0/AndroidManifest.xml:47:13-37
+249            <intent-filter android:priority="-500" >
+249-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-25:29
+250                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+250-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:17-78
+250-->[:firebase_messaging] /home/beatriz/Documents/therapietreue-app/build/firebase_messaging/intermediates/merged_manifest/release/AndroidManifest.xml:24:25-75
+251            </intent-filter>
+252        </service>
+253
+254        <provider
+254-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:25:9-30:39
+255            android:name="com.google.firebase.provider.FirebaseInitProvider"
+255-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:26:13-77
+256            android:authorities="de.medunited.therapietreu.firebaseinitprovider"
+256-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:27:13-72
+257            android:directBootAware="true"
+257-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:28:13-43
+258            android:exported="false"
+258-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:29:13-37
+259            android:initOrder="100" />
+259-->[com.google.firebase:firebase-common:20.2.0] /home/beatriz/.gradle/caches/transforms-3/be4e127f5c507aa2bbff88d15520e5ed/transformed/jetified-firebase-common-20.2.0/AndroidManifest.xml:30:13-36
+260
+261        <activity
+261-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:23:9-27:75
+262            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+262-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:24:13-93
+263            android:excludeFromRecents="true"
+263-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:25:13-46
+264            android:exported="false"
+264-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:26:13-37
+265            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+265-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:27:13-72
+266        <!--
+267            Service handling Google Sign-In user revocation. For apps that do not integrate with
+268            Google Sign-In, this service will never be started.
+269        -->
+270        <service
+270-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:33:9-37:51
+271            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+271-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:34:13-89
+272            android:exported="true"
+272-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:35:13-36
+273            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+273-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:36:13-107
+274            android:visibleToInstantApps="true" />
+274-->[com.google.android.gms:play-services-auth:20.4.0] /home/beatriz/.gradle/caches/transforms-3/3535be8f62b8f6744ac9d5afbd552ab5/transformed/jetified-play-services-auth-20.4.0/AndroidManifest.xml:37:13-48
+275
+276        <activity
+276-->[com.google.android.gms:play-services-base:18.0.1] /home/beatriz/.gradle/caches/transforms-3/3ff720be07735976176520d1c05fb799/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+277            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+277-->[com.google.android.gms:play-services-base:18.0.1] /home/beatriz/.gradle/caches/transforms-3/3ff720be07735976176520d1c05fb799/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+278            android:exported="false"
+278-->[com.google.android.gms:play-services-base:18.0.1] /home/beatriz/.gradle/caches/transforms-3/3ff720be07735976176520d1c05fb799/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+279            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+279-->[com.google.android.gms:play-services-base:18.0.1] /home/beatriz/.gradle/caches/transforms-3/3ff720be07735976176520d1c05fb799/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+280
+281        <meta-data
+281-->[com.google.android.gms:play-services-basement:18.1.0] /home/beatriz/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+282            android:name="com.google.android.gms.version"
+282-->[com.google.android.gms:play-services-basement:18.1.0] /home/beatriz/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+283            android:value="@integer/google_play_services_version" />
+283-->[com.google.android.gms:play-services-basement:18.1.0] /home/beatriz/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+284
+285        <provider
+285-->[io.sentry:sentry-android-core:6.11.0] /home/beatriz/.gradle/caches/transforms-3/54c8be3ab02d29e7331da86eba7a5314/transformed/jetified-sentry-android-core-6.11.0/AndroidManifest.xml:18:9-22:39
+286            android:name="io.sentry.android.core.SentryPerformanceProvider"
+286-->[io.sentry:sentry-android-core:6.11.0] /home/beatriz/.gradle/caches/transforms-3/54c8be3ab02d29e7331da86eba7a5314/transformed/jetified-sentry-android-core-6.11.0/AndroidManifest.xml:19:13-76
+287            android:authorities="de.medunited.therapietreu.SentryPerformanceProvider"
+287-->[io.sentry:sentry-android-core:6.11.0] /home/beatriz/.gradle/caches/transforms-3/54c8be3ab02d29e7331da86eba7a5314/transformed/jetified-sentry-android-core-6.11.0/AndroidManifest.xml:20:13-77
+288            android:exported="false"
+288-->[io.sentry:sentry-android-core:6.11.0] /home/beatriz/.gradle/caches/transforms-3/54c8be3ab02d29e7331da86eba7a5314/transformed/jetified-sentry-android-core-6.11.0/AndroidManifest.xml:21:13-37
+289            android:initOrder="200" />
+289-->[io.sentry:sentry-android-core:6.11.0] /home/beatriz/.gradle/caches/transforms-3/54c8be3ab02d29e7331da86eba7a5314/transformed/jetified-sentry-android-core-6.11.0/AndroidManifest.xml:22:13-36
+290        <provider
+290-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/beatriz/.gradle/caches/transforms-3/3fc716d9e813218eb1841fbd4ab368e3/transformed/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+291            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+291-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/beatriz/.gradle/caches/transforms-3/3fc716d9e813218eb1841fbd4ab368e3/transformed/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+292            android:authorities="de.medunited.therapietreu.lifecycle-process"
+292-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/beatriz/.gradle/caches/transforms-3/3fc716d9e813218eb1841fbd4ab368e3/transformed/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+293            android:exported="false"
+293-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/beatriz/.gradle/caches/transforms-3/3fc716d9e813218eb1841fbd4ab368e3/transformed/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+294            android:multiprocess="true" />
+294-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/beatriz/.gradle/caches/transforms-3/3fc716d9e813218eb1841fbd4ab368e3/transformed/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+295
+296        <service
+296-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+297            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+297-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+298            android:exported="false" >
+298-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+299            <meta-data
+299-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+300                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+300-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+301                android:value="cct" />
+301-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /home/beatriz/.gradle/caches/transforms-3/c728461e4a12f7993de433fc32ef8659/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+302        </service>
+303        <service
+303-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+304            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+304-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+305            android:exported="false"
+305-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+306            android:permission="android.permission.BIND_JOB_SERVICE" >
+306-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+307        </service>
+308
+309        <receiver
+309-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+310            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+310-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+311            android:exported="false" />
+311-->[com.google.android.datatransport:transport-runtime:3.1.8] /home/beatriz/.gradle/caches/transforms-3/ce7a7fecad80157ffb91d8aaf45dc5c8/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+312    </application>
+313
+314</manifest>
