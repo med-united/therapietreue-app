@@ -26,3 +26,6 @@ doc/api/
 
 *.iml
 *.ios
+
+.flutter-plugins
+.flutter-plugins-dependencies
