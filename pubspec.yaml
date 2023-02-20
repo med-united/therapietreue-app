@@ -34,7 +34,7 @@ dependencies:
   cloud_functions: null
   cupertino_icons: ^1.0.2
   enum_to_string: null
-  firebase_analytics: null
+#  firebase_analytics: null
   firebase_auth: null
   firebase_core: null
   firebase_messaging: null
