@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
@@ -23,10 +22,13 @@ import 'package:therapietreu/ui/theme/theme_textfield.dart';
 import 'package:xml2json/xml2json.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:therapietreu/features/medication/get_datamatrixcode_screen.dart';
+import 'package:google_ml_vision/google_ml_vision.dart';
 
 // import the io version
 // use url launcher package
 import '../user/domain/user.dart';
+import 'dart:developer' as dev;
 
 String path = "";
 String name = "";
@@ -137,7 +139,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
       }
     });
     MedicationPlan? medPlan =
-        ref.watch<MedicationPlan?>(medicationPlanStateProvider);
+    ref.watch<MedicationPlan?>(medicationPlanStateProvider);
     getUserInfo() async {
       final prefs = await SharedPreferences.getInstance();
       Future.delayed(const Duration(seconds: 1));
@@ -219,20 +221,20 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             onTap: () {
                               Navigator.of(context)
                                   .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const UserDetailScreen()))
+                                  builder: (context) =>
+                                  const UserDetailScreen()))
                                   .then((value) => setState(() {
-                                        //   showDebugErrorToast(path);
-                                        FocusManager.instance.primaryFocus
-                                            ?.unfocus();
+                                //   showDebugErrorToast(path);
+                                FocusManager.instance.primaryFocus
+                                    ?.unfocus();
 
-                                        path = path;
-                                      }));
+                                path = path;
+                              }));
                             },
                             child: CircleAvatar(
                               radius: 51,
                               backgroundImage:
-                                  FileImage(File(snapshot.data[1])),
+                              FileImage(File(snapshot.data[1])),
                               backgroundColor: ThemeColors.primaryColor,
                               child: ThemeBodySText(
                                 (path == "") ? "Bild \n hinzufügen" : "",
@@ -279,18 +281,36 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                   child: GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () async {
-                      String? qrResult = await MajaScan.startScan(
-                          title: "Data-Matrix Scanner",
-                          barColor: Colors.white,
-                          titleColor: ThemeColors.primaryColor,
-                          qRCornerColor: ThemeColors.secondaryColorDark,
-                          qRScannerColor: ThemeColors.secondaryColor,
-                          flashlightEnable: true,
-                          scanAreaScale: 0.7);
+
+                      final filePath = await Navigator.of(context)
+                          .push(MaterialPageRoute(
+                          builder: (context) =>
+                              GetDataMatrixCodeScreen()));
+
+                      File file = File(filePath!);
+                      final GoogleVisionImage visionImage = GoogleVisionImage.fromFile(file);
+
+                      const BarcodeDetectorOptions options = BarcodeDetectorOptions(barcodeFormats: BarcodeFormat.dataMatrix);
+                      final BarcodeDetector barcodeDetector = GoogleVision.instance.barcodeDetector(options);
+                      print(barcodeDetector);
+
+                      final List<Barcode> barcodes = await barcodeDetector.detectInImage(visionImage);
+                      print(barcodes);
+
+                      for (Barcode barcode in barcodes) {
+                        final String? rawValue = barcode.rawValue;
+                        final BarcodeValueType valueType = barcode.valueType;
+                        print(rawValue);
+                        print(valueType);
+                      }
+
+                      print("------ Starts code that has not been changed ------");
+                      // The following line is used to test what is happening to a string read from a scanner
+                      String qrResult = "<MP xmlns=\"http://ws.gematik.de/fa/amtss/AMTS_Document/v1.6\" v=\"025\" U=\"B8B280E37E3B216CD3EF5193F854B2D0\" l=\"de-DE\"> <P g=\"Barbara\" f=\"KÃ¼hn\" b=\"19480207\" /> <A n=\"med.united Beatriz Correia\" e=\"beatriz.correia@testinggg.de\" t=\"2022-11-22T09:50:24\" /><S><M p=\"17954330\" a=\"SITAGLIPTIN/Metformin Heumann 50 mg/850 mg FTA\" d=\"1\" h=\"1\" /><M p=\"10792640\" a=\"MEDICOMP Drain Kompressen 7,5x7,5 cm steril\" /><M p=\"18060994\" a=\"SITAGAVIA 50 mg Filmtabletten\" m=\"1/2\" /> <M p=\"1016612\" a=\"NIFEDIPIN AbZ 20 mg Retardtabletten\" v=\"1\" /></S></MP>";
+                      print("$qrResult§§§");
 
                       if (qrResult != null) {
                         final myTransformer = Xml2Json();
-                        print("$qrResult§§§");
                         try {
                           myTransformer.parse(qrResult);
                         } catch (err) {
@@ -332,13 +352,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       info: val['i'],
                                       amountInfo: val['t'],
                                       amountMorning:
-                                          double.parse(val['m'] ?? '0'),
+                                      double.parse(val['m'] ?? '0'),
                                       amountEvening:
-                                          double.parse(val['v'] ?? '0'),
+                                      double.parse(val['v'] ?? '0'),
                                       amountMidday:
-                                          double.parse(val['md'] ?? '0'),
+                                      double.parse(val['md'] ?? '0'),
                                       amountNight:
-                                          double.parse(val['n'] ?? '0'));
+                                      double.parse(val['n'] ?? '0'));
 
                                   mediList.add(medication);
                                 }
@@ -351,13 +371,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                   info: val1['M']['i'],
                                   amountInfo: val1['M']['t'],
                                   amountMorning:
-                                      double.parse(val1['M']['m'] ?? '0'),
+                                  double.parse(val1['M']['m'] ?? '0'),
                                   amountEvening:
-                                      double.parse(val1['M']['v'] ?? '0'),
+                                  double.parse(val1['M']['v'] ?? '0'),
                                   amountMidday:
-                                      double.parse(val1['M']['md'] ?? '0'),
+                                  double.parse(val1['M']['md'] ?? '0'),
                                   amountNight:
-                                      double.parse(val1['M']['n'] ?? '0'));
+                                  double.parse(val1['M']['n'] ?? '0'));
                               // showDebugErrorToast(medication.toString());
 
                               mediList.add(medication);
@@ -376,13 +396,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       info: val['i'],
                                       amountInfo: val['t'],
                                       amountMorning:
-                                          double.parse(val['m'] ?? '0'),
+                                      double.parse(val['m'] ?? '0'),
                                       amountEvening:
-                                          double.parse(val['v'] ?? '0'),
+                                      double.parse(val['v'] ?? '0'),
                                       amountMidday:
-                                          double.parse(val['md'] ?? '0'),
+                                      double.parse(val['md'] ?? '0'),
                                       amountNight:
-                                          double.parse(val['n'] ?? '0'));
+                                      double.parse(val['n'] ?? '0'));
 
                                   mediList.add(medication);
                                 } catch (err) {
@@ -398,13 +418,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                 info: val1['M']['i'],
                                 amountInfo: val1['M']['t'],
                                 amountMorning:
-                                    double.parse(val1['M']['m'] ?? '0'),
+                                double.parse(val1['M']['m'] ?? '0'),
                                 amountEvening:
-                                    double.parse(val1['M']['v'] ?? '0'),
+                                double.parse(val1['M']['v'] ?? '0'),
                                 amountMidday:
-                                    double.parse(val1['M']['md'] ?? '0'),
+                                double.parse(val1['M']['md'] ?? '0'),
                                 amountNight:
-                                    double.parse(val1['M']['n'] ?? '0'));
+                                double.parse(val1['M']['n'] ?? '0'));
                             // showDebugErrorToast(medication.toString());
 
                             mediList.add(medication);
@@ -425,13 +445,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                           mediList[k] = mediList[k].copyWith(
                               name: jsonDecode(resp.body)["results"][0]
-                                  ["name"]);
+                              ["name"]);
                           mediList[k] = mediList[k].copyWith(
                               packageSize: isNumeric(
-                                      jsonDecode(resp.body)["results"][0]
-                                          ["packaging"]["quantity"])
+                                  jsonDecode(resp.body)["results"][0]
+                                  ["packaging"]["quantity"])
                                   ? int.parse(jsonDecode(resp.body)["results"]
-                                      [0]["packaging"]["quantity"])
+                              [0]["packaging"]["quantity"])
                                   : 0);
                         }
 
@@ -440,7 +460,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             user: user, doctor: doctor, medication: mediList);
 
                         var medplanState =
-                            ref.read(medicationPlanStateProvider.notifier);
+                        ref.read(medicationPlanStateProvider.notifier);
 
                         if (medPlan != null) {
                           medplanState.updateMedicationPlan(
@@ -451,14 +471,16 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                         }
 
                         for (int i = 0; i < 7; i++) {
-                          print("fwfefrw");
+                          print("for seven days");
                           DateTime now = DateTime.now();
+                          print(now);
 
                           for (Medication medication
-                              in medicationPlan.medication ?? []) {
+                          in medicationPlan.medication ?? []) {
                             DateTime? schedule;
 
                             if (medication.amountMorning != 0) {
+                              dev.log("NOTIFICATION SET FOR MORNING");
                               print("fwfefrw$i");
 
                               schedule = DateTime(
@@ -466,43 +488,46 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
-                                      schedule,
-                                      Random().nextInt(1000000),
-                                      "Therapietreue Wichtig!!",
-                                      "Medikationseinnahme: ${medication.amountMorning} x ${medication.name} jetzt einnehmen!");
+                                  schedule,
+                                  Random().nextInt(1000000),
+                                  "Therapietreue Wichtig!!",
+                                  "Medikationseinnahme: ${medication.amountMorning} x ${medication.name} jetzt einnehmen!");
                             }
                             if (medication.amountMidday != 0) {
-                              schedule = DateTime(
-                                  now.year, now.month, now.day + i, 12, 0);
-                              ref
-                                  .read(localNotificationProvider)
-                                  .scheduleNotification(
-                                      schedule,
-                                      Random().nextInt(1000000),
-                                      "Therapietreue Wichtig!!",
-                                      "Medikationseinnahme: ${medication.amountMidday} x ${medication.name} jetzt einnehmen!");
-                            }
-                            if (medication.amountEvening != 0) {
+                              dev.log("NOTIFICATION SET FOR MIDDAY");
                               schedule = DateTime(
                                   now.year, now.month, now.day + i, 18, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
-                                      schedule,
-                                      Random().nextInt(1000000),
-                                      "Therapietreue Wichtig!!",
-                                      "Medikationseinnahme: ${medication.amountEvening} x ${medication.name} jetzt einnehmen!");
+                                  schedule,
+                                  Random().nextInt(1000000),
+                                  "Therapietreue Wichtig!!",
+                                  "Medikationseinnahme: ${medication.amountMidday} x ${medication.name} jetzt einnehmen!");
+                            }
+                            if (medication.amountEvening != 0) {
+                              dev.log("NOTIFICATION SET FOR EVENING");
+                              schedule = DateTime(
+                                  now.year, now.month, now.day + i, 18, 0);
+                              ref
+                                  .read(localNotificationProvider)
+                                  .scheduleNotification(
+                                  schedule,
+                                  Random().nextInt(1000000),
+                                  "Therapietreue Wichtig!!",
+                                  "Medikationseinnahme: ${medication.amountEvening} x ${medication.name} jetzt einnehmen!");
                             }
                             if (medication.amountNight != 0) {
+                              dev.log("NOTIFICATION SET FOR NIGHT");
                               schedule = DateTime(
                                   now.year, now.month, now.day + i, 21, 0);
                               ref
                                   .read(localNotificationProvider)
                                   .scheduleNotification(
-                                      schedule,
-                                      Random().nextInt(1000000),
-                                      "Therapietreue Wichtig!!",
-                                      "Medikationseinnahme: ${medication.amountNight} x ${medication.name} jetzt einnehmen!");
+                                  schedule,
+                                  Random().nextInt(1000000),
+                                  "Therapietreue Wichtig!!",
+                                  "Medikationseinnahme: ${medication.amountNight} x ${medication.name} jetzt einnehmen!");
                             }
                           }
                         }
@@ -551,16 +576,16 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                     children: [
                       Expanded(
                           child: Container(
-                        color: Colors.white,
-                      )),
+                            color: Colors.white,
+                          )),
                       Expanded(
                           child: Container(
-                        decoration: const BoxDecoration(
-                            color: ThemeColors.secondaryColor,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(32),
-                                bottomLeft: Radius.circular(32))),
-                      )),
+                            decoration: const BoxDecoration(
+                                color: ThemeColors.secondaryColor,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(32),
+                                    bottomLeft: Radius.circular(32))),
+                          )),
                     ],
                   ),
                 ),
@@ -585,7 +610,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
+                                BorderRadius.all(Radius.circular(16))),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -597,72 +622,72 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       animationDuration: 1000,
                                       lineWidth: 3.0,
                                       percent: (medication.packageSize == 0) ||
-                                              (((medication.amountMorning ??
-                                                          0) +
-                                                      (medication
-                                                              .amountMidday ??
-                                                          0) +
-                                                      (medication
-                                                              .amountEvening ??
-                                                          0) +
-                                                      (medication
-                                                              .amountNight ??
-                                                          0)) ==
-                                                  0.0)
+                                          (((medication.amountMorning ??
+                                              0) +
+                                              (medication
+                                                  .amountMidday ??
+                                                  0) +
+                                              (medication
+                                                  .amountEvening ??
+                                                  0) +
+                                              (medication
+                                                  .amountNight ??
+                                                  0)) ==
+                                              0.0)
                                           ? 0.0
                                           : (medication
-                                                      .packageSize ??
-                                                  0 /
-                                                          (medication
-                                                                  .amountMorning ??
-                                                              0) +
-                                                      (medication
-                                                              .amountMidday ??
-                                                          0) +
-                                                      (medication
-                                                              .amountEvening ??
-                                                          0) +
-                                                      (medication.amountNight ??
-                                                          0)) /
-                                              medication.packageSize!,
+                                          .packageSize ??
+                                          0 /
+                                              (medication
+                                                  .amountMorning ??
+                                                  0) +
+                                              (medication
+                                                  .amountMidday ??
+                                                  0) +
+                                              (medication
+                                                  .amountEvening ??
+                                                  0) +
+                                              (medication.amountNight ??
+                                                  0)) /
+                                          medication.packageSize!,
                                       center: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                         children: [
                                           ThemeBodyBText(
                                             (medication.packageSize == 0) ||
-                                                    (((medication
-                                                                    .amountMorning ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountMidday ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountEvening ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountNight ??
-                                                                0)) ==
-                                                        0.0)
+                                                (((medication
+                                                    .amountMorning ??
+                                                    0) +
+                                                    (medication
+                                                        .amountMidday ??
+                                                        0) +
+                                                    (medication
+                                                        .amountEvening ??
+                                                        0) +
+                                                    (medication
+                                                        .amountNight ??
+                                                        0)) ==
+                                                    0.0)
                                                 ? "-"
                                                 : (medication.packageSize ??
-                                                        0 /
-                                                                (medication
-                                                                        .amountMorning ??
-                                                                    0) +
-                                                            (medication
-                                                                    .amountMidday ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountEvening ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountNight ??
-                                                                0))
-                                                    .toString(),
+                                                0 /
+                                                    (medication
+                                                        .amountMorning ??
+                                                        0) +
+                                                    (medication
+                                                        .amountMidday ??
+                                                        0) +
+                                                    (medication
+                                                        .amountEvening ??
+                                                        0) +
+                                                    (medication
+                                                        .amountNight ??
+                                                        0))
+                                                .toString(),
                                             textAlign: TextAlign.center,
                                           ),
                                           ThemeBodyLText(
@@ -673,21 +698,21 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       ),
                                       circularStrokeCap: CircularStrokeCap.butt,
                                       backgroundColor:
-                                          ThemeColors.secondaryColor,
+                                      ThemeColors.secondaryColor,
                                       progressColor:
-                                          ThemeColors.secondaryColorDark),
+                                      ThemeColors.secondaryColorDark),
                                 ),
                                 const SizedBox(
                                   width: 24,
                                 ),
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.5,
+                                  MediaQuery.of(context).size.width * 0.5,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       ThemeBodyBText(
                                         medication.name ?? '-',
@@ -716,7 +741,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
+                                BorderRadius.all(Radius.circular(16))),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -789,15 +814,15 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                         text: 'E-Rezept ',
                                         style: ThemeConstants.primaryFont
                                             .copyWith(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w700,
-                                                color: Colors.black),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black),
                                         children: const <TextSpan>[
                                           TextSpan(
                                               text: 'anfordern',
                                               style: TextStyle(
                                                   fontWeight:
-                                                      FontWeight.normal)),
+                                                  FontWeight.normal)),
                                         ],
                                       ),
                                     ),
@@ -806,9 +831,9 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                         text: 'und Medikament \n',
                                         style: ThemeConstants.primaryFont
                                             .copyWith(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.normal,
-                                                color: Colors.black),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
+                                            color: Colors.black),
                                         children: const <TextSpan>[
                                           TextSpan(
                                               text: 'liefern',
@@ -818,7 +843,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                               text: ' lassen',
                                               style: TextStyle(
                                                   fontWeight:
-                                                      FontWeight.normal)),
+                                                  FontWeight.normal)),
                                         ],
                                       ),
                                     ),
@@ -839,7 +864,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                               decoration: const BoxDecoration(
                                   color: Colors.white,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
+                                  BorderRadius.all(Radius.circular(16))),
                               child: Center(
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
@@ -847,17 +872,17 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                     behavior: HitTestBehavior.translucent,
                                     onTap: () async {
                                       String? barcodeScanRes =
-                                          await MajaScan.startScan(
-                                              title: "PZN-Scanner",
-                                              barColor: Colors.white,
-                                              titleColor:
-                                                  ThemeColors.primaryColor,
-                                              qRCornerColor: ThemeColors
-                                                  .secondaryColorDark,
-                                              qRScannerColor:
-                                                  ThemeColors.secondaryColor,
-                                              flashlightEnable: true,
-                                              scanAreaScale: 0.7);
+                                      await MajaScan.startScan(
+                                          title: "PZN-Scanner",
+                                          barColor: Colors.white,
+                                          titleColor:
+                                          ThemeColors.primaryColor,
+                                          qRCornerColor: ThemeColors
+                                              .secondaryColorDark,
+                                          qRScannerColor:
+                                          ThemeColors.secondaryColor,
+                                          flashlightEnable: true,
+                                          scanAreaScale: 0.7);
 
                                       print(barcodeScanRes);
                                       /*        await FlutterBarcodeScanner
@@ -875,14 +900,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                             'https://medication.med-united.health/ajax/search/drugs/auto/?query=$barcodeScanRes'));
 
                                         if (jsonDecode(resp.body)["results"]
-                                                .length !=
+                                            .length !=
                                             0) {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) =>
                                                       MedicationDetailScreen(
                                                           jsonDecode(resp.body)[
-                                                              "results"][0])));
+                                                          "results"][0])));
                                         } else {
                                           showDebugErrorToast(
                                               "Not found Product");

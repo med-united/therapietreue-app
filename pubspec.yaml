@@ -70,6 +70,10 @@ dependencies:
   http: ^0.13.5
   flutter_cupertino_date_picker: ^1.0.26+2
   flutter_barcode_scanner: ^2.0.0
+  google_ml_vision: ^0.0.8
+  camera: ^0.10.3
+  path_provider: ^2.0.12
+  path: ^1.8.2
 
 dev_dependencies:
   build_runner: null

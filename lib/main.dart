@@ -8,7 +8,7 @@ import 'package:therapietreu/apis/notifications/notification_api.dart';
 import 'core/utils/debug_tools.dart';
 import 'core/utils/logger.dart';
 import 'features/splash/splash.dart';
-
+import 'package:flutter/material.dart';
 import 'features/home/home.dart';
 import 'ui/theme/theme_colors.dart';
 
@@ -30,7 +30,8 @@ Future<void> main() async {
   }
 }
 
-void run() {
+Future<void> run() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(ProviderScope(observers: [Logger()], child: const MyApp()));
 }
 
