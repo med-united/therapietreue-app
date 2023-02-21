@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import '../../ui/theme/theme_colors.dart';
+import '../../ui/theme/theme_constants.dart';
 
 // A screen that allows users to either select a datamatrix code image from the gallery or scan it in real-time.
 
@@ -68,7 +69,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
           const SizedBox(height: 20),
           Text(
             'DataMatrix-Code scannen',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal
+            style: ThemeConstants.primaryFont.copyWith(fontSize: 20, fontWeight: FontWeight.normal
             ),
           ),
           const SizedBox(height: 38),
@@ -78,7 +79,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
             onClicked: () => pickImage(ImageSource.gallery, context),
           ),
           Spacer(flex: 1),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('Vorhandenes Foto von DataMatrix-Code hinzufügen', style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal))]),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('Vorhandenes Foto von DataMatrix-Code hinzufügen', style: ThemeConstants.primaryFont.copyWith(fontSize: 15, fontWeight: FontWeight.normal))]),
           const SizedBox(height: 24),
           buildButton(
             title: 'Kamera',
@@ -86,11 +87,10 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
             onClicked: () => pickImage(ImageSource.camera, context),
           ),
           Spacer(flex: 1),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('DataMatrix-Code fotografieren', style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal))]),
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('DataMatrix-Code fotografieren', style: ThemeConstants.primaryFont.copyWith(fontSize: 15, fontWeight: FontWeight.normal))]),
           Spacer(flex: 4),
         ],
       )
-      
     )
   );
 
@@ -106,7 +106,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
           children: [
             Icon(icon, size: 28),
             const SizedBox(width: 16),
-            Text(title),
+            Text(title, style: ThemeConstants.primaryFont),
           ],
         ),
         onPressed: onClicked,
