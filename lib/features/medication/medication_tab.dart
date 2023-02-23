@@ -297,16 +297,18 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                       final List<Barcode> barcodes = await barcodeDetector.detectInImage(visionImage);
                       print(barcodes);
 
+                      String? qrResult;
+
                       for (Barcode barcode in barcodes) {
-                        final String? rawValue = barcode.rawValue;
+                        qrResult = barcode.rawValue;
                         final BarcodeValueType valueType = barcode.valueType;
-                        print(rawValue);
-                        print(valueType);
+                        print("rawValue: $qrResult");
+                        print("valueType: $valueType");
                       }
 
-                      print("------ Starts code that has not been changed ------");
                       // The following line is used to test what is happening to a string read from a scanner
-                      String qrResult = "<MP xmlns=\"http://ws.gematik.de/fa/amtss/AMTS_Document/v1.6\" v=\"025\" U=\"B8B280E37E3B216CD3EF5193F854B2D0\" l=\"de-DE\"> <P g=\"Barbara\" f=\"KÃ¼hn\" b=\"19480207\" /> <A n=\"med.united Beatriz Correia\" e=\"beatriz.correia@testinggg.de\" t=\"2022-11-22T09:50:24\" /><S><M p=\"17954330\" a=\"SITAGLIPTIN/Metformin Heumann 50 mg/850 mg FTA\" d=\"1\" h=\"1\" /><M p=\"10792640\" a=\"MEDICOMP Drain Kompressen 7,5x7,5 cm steril\" /><M p=\"18060994\" a=\"SITAGAVIA 50 mg Filmtabletten\" m=\"1/2\" /> <M p=\"1016612\" a=\"NIFEDIPIN AbZ 20 mg Retardtabletten\" v=\"1\" /></S></MP>";
+                      // String qrResult = "<MP xmlns=\"http://ws.gematik.de/fa/amtss/AMTS_Document/v1.6\" v=\"025\" U=\"B8B280E37E3B216CD3EF5193F854B2D0\" l=\"de-DE\"> <P g=\"Barbara\" f=\"KÃ¼hn\" b=\"19480207\" /> <A n=\"med.united Beatriz Correia\" e=\"beatriz.correia@testinggg.de\" t=\"2022-11-22T09:50:24\" /><S><M p=\"17954330\" a=\"SITAGLIPTIN/Metformin Heumann 50 mg/850 mg FTA\" d=\"1\" h=\"1\" /><M p=\"10792640\" a=\"MEDICOMP Drain Kompressen 7,5x7,5 cm steril\" /><M p=\"18060994\" a=\"SITAGAVIA 50 mg Filmtabletten\" m=\"1/2\" /> <M p=\"1016612\" a=\"NIFEDIPIN AbZ 20 mg Retardtabletten\" v=\"1\" /></S></MP>";
+
                       print("$qrResult§§§");
 
                       if (qrResult != null) {
@@ -437,6 +439,8 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                           }
                           return double.tryParse(str) != null;
                         }
+
+                        print("mediList: $mediList");
 
                         for (int k = 0; k < mediList.length; k++) {
                           // showDebugErrorToast("medication");
