@@ -34,8 +34,15 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: Colors.white,
-    appBar: AppBar(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: ThemeColors.primaryColor,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         title: SizedBox(
