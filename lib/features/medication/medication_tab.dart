@@ -154,6 +154,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.info),
+          color: ThemeColors.primaryColor,
+          onPressed: () {
+            _showPopupMenu(context);
+          },
+        ),
         elevation: 0,
         backgroundColor: Colors.white,
         title: SizedBox(
@@ -943,6 +950,57 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
         ),
       ),
     );
+  }
+  void _showPopupMenu(BuildContext context) async {
+    final selectedOption = await showMenu(
+      context: context,
+      position: const RelativeRect.fromLTRB(0, 100, 0, 0),
+      items: [
+        PopupMenuItem(
+          child: const Text('How to use the app'),
+          value: 1,
+        ),
+        PopupMenuItem(
+          child: SizedBox(
+            width: 330,
+            child: Row(
+              children: [
+                Text(
+                  'About  ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                SizedBox(height: 17,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 2.9),
+                  child: Image.asset(
+                  'assets/images/logo.png',),
+                ),),
+              ],
+            ),
+          ),
+          value: 2,
+        ),
+        PopupMenuItem(
+          child: const Text('Privacy policy'),
+          value: 3,
+        ),
+      ],
+    );
+
+    switch (selectedOption) {
+      case 1:
+      // Do something when Option 1 is selected
+        break;
+      case 2:
+      // Do something when Option 2 is selected
+        break;
+      case 3:
+      // Do something when Option 3 is selected
+        break;
+    }
   }
 }
 
