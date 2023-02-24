@@ -27,9 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera permission is required for qrcode scanning.</string>
+	<string>Zum Scannen ist eine Kameraerlaubnis erforderlich.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to the library to add a photo to the profile</string>
+	<string>Der Zugriff auf Ihre Fotogalerie ist erforderlich, um ein Bild auszuwählen.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
