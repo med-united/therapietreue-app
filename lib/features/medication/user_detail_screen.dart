@@ -36,7 +36,14 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
         navigationBar: ThemeNavigationBar(
           context,
           title: "",
-          showBackButton: true,
+          leading: [Material(
+            child: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          )],
         ),
         child: SingleChildScrollView(
           child: Column(
