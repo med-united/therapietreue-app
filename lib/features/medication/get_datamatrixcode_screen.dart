@@ -27,7 +27,6 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
 
       Navigator.pop(context, imageOfDatamatrix.path);
 
-      //setState(() => this.imageOfDatamatrix = imagePermanent);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
@@ -56,14 +55,8 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
       padding: EdgeInsets.all(32),
       child: Column(
         children: [
-          Spacer(),
-          imageOfDatamatrix != null ? Image.file(
-            imageOfDatamatrix!,
-            width: 160,
-            height: 160,
-            fit: BoxFit.cover,
-          )
-              : Image.asset(
+          const SizedBox(height: 15),
+          Image.asset(
             'assets/images/scanning-datamatrix.gif',
           ),
           const SizedBox(height: 20),
