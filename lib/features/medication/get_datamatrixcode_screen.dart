@@ -11,7 +11,8 @@ import '../../ui/theme/theme_constants.dart';
 
 class GetDataMatrixCodeScreen extends StatefulWidget {
   @override
-  _GetDataMatrixCodeScreenState createState() => _GetDataMatrixCodeScreenState();
+  _GetDataMatrixCodeScreenState createState() =>
+      _GetDataMatrixCodeScreenState();
 }
 
 class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
@@ -26,7 +27,6 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
       final imagePermanent = await saveImagePermanently(imageOfDatamatrix.path);
 
       Navigator.pop(context, imageOfDatamatrix.path);
-
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
@@ -57,50 +57,77 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
               color: ThemeColors.secondaryColor,
               height: 1.0,
             )),
-    ),
-    body: Container(
-      padding: EdgeInsets.all(32),
-      child: Column(
-        children: [
-          const SizedBox(height: 15),
-          Image.asset(
-            'assets/images/scanning-datamatrix.gif',
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'DataMatrix-Code scannen',
-            style: ThemeConstants.primaryFont.copyWith(fontSize: 20, fontWeight: FontWeight.normal
-            ),
-          ),
-          const SizedBox(height: 38),
-          buildButton(
-            title: 'Fotogalerie',
-            icon: Icons.image_outlined,
-            onClicked: () => pickImage(ImageSource.gallery, context),
-          ),
-          Spacer(flex: 1),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('Vorhandenes Foto von DataMatrix-Code hinzufügen', style: ThemeConstants.primaryFont.copyWith(fontSize: 15, fontWeight: FontWeight.normal))]),
-          const SizedBox(height: 24),
-          buildButton(
-            title: 'Kamera',
-            icon: Icons.camera_alt_outlined,
-            onClicked: () => pickImage(ImageSource.camera, context),
-          ),
-          Spacer(flex: 1),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('DataMatrix-Code fotografieren', style: ThemeConstants.primaryFont.copyWith(fontSize: 15, fontWeight: FontWeight.normal))]),
-          Spacer(flex: 4),
-        ],
-      )
-    )
-  );
+      ),
+      body: Container(
+          padding: EdgeInsets.all(32),
+          child: Column(
+            children: [
+              const SizedBox(height: 15),
+              Image.asset(
+                'assets/images/scanning-datamatrix.gif',
+              ),
+              const SizedBox(height: 30),
+              Container(
+                width: 250,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: ThemeColors.secondaryColor,
+                  // set the background color
+                  borderRadius: BorderRadius.circular(16), // optional: add border radius to the container
+                ),
+                child: Center(
+                  child: Text(
+                    'DataMatrix-Code scannen',
+                    style: ThemeConstants.primaryFont
+                        .copyWith(fontSize: 15, fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+              buildButton(
+                title: 'Fotogalerie',
+                icon: Icons.image_outlined,
+                onClicked: () => pickImage(ImageSource.gallery, context),
+              ),
+              Spacer(flex: 1),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('\t\t\t\tVorhandenes Foto von DataMatrix-Code hinzufügen',
+                    style: ThemeConstants.primaryFont
+                        .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
+              ]),
+              const SizedBox(height: 24),
+              buildButton(
+                title: 'Kamera',
+                icon: Icons.camera_alt_outlined,
+                onClicked: () => pickImage(ImageSource.camera, context),
+              ),
+              Spacer(flex: 1),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('\t\t\t\tDataMatrix-Code fotografieren',
+                    style: ThemeConstants.primaryFont
+                        .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
+              ]),
+              Spacer(flex: 4),
+              const SizedBox(height: 44),
+            ],
+          )));
 
-  buildButton({required String title, required IconData icon, required VoidCallback onClicked}) =>
+  buildButton(
+          {required String title,
+          required IconData icon,
+          required VoidCallback onClicked}) =>
       ElevatedButton(
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.white,
+          foregroundColor: Colors.white,
+          backgroundColor: ThemeColors.primaryColor,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: BorderSide(width: 3, color: Colors.white),
+          ),
           minimumSize: Size.fromHeight(56),
-          textStyle: TextStyle(fontSize: 20),
+          textStyle: ThemeConstants.primaryFont
+              .copyWith(fontSize: 19, fontWeight: FontWeight.normal),
         ),
         child: Row(
           children: [
