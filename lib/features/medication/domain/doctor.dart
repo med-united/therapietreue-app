@@ -12,6 +12,7 @@ class Doctor with _$Doctor {
       String? name,
       String? street,
       int? zipCode,
+      String? phone,
       String? city,
       String? mail,
       String? date}) = _Doctor;

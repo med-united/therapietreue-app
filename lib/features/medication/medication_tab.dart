@@ -342,7 +342,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             name: json['MP']['A']['n'],
                             street: json['MP']['A']['s'],
                             zipCode: int.parse(json['MP']['A']['z'] ?? "76137"),
-                            id: json['MP']['A']['p'],
+                            phone: json['MP']['A']['p'],
                             city: json['MP']['A']['c'],
                             mail: json['MP']['A']['e'],
                             date: json['MP']['A']['t']);
