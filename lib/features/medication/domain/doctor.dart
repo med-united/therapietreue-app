@@ -9,8 +9,7 @@ class Doctor with _$Doctor {
 
   factory Doctor(
       {final String? id,
-      String? surname,
-      String? lastname,
+      String? name,
       String? street,
       int? zipCode,
       String? city,

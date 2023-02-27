@@ -333,13 +333,13 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                         User user = User();
                         user = user.copyWith(
-                            surname: json['MP']['P']['g'],
+                            firstname: json['MP']['P']['g'],
                             lastname: json['MP']['P']['f'],
                             id: json['MP']['P']['b']);
 
                         Doctor doctor = Doctor();
                         doctor = doctor.copyWith(
-                            surname: json['MP']['A']['n'],
+                            name: json['MP']['A']['n'],
                             street: json['MP']['A']['s'],
                             zipCode: int.parse(json['MP']['A']['z'] ?? "76137"),
                             id: json['MP']['A']['p'],
@@ -447,10 +447,11 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                           return double.tryParse(str) != null;
                         }
 
-                        print("mediList: $mediList");
+                        print("mediList: $mediList\n");
 
                         for (int k = 0; k < mediList.length; k++) {
                           // showDebugErrorToast("medication");
+                          print("-----mediList[$k].id BEFORE RETRIEVING NAME AND PACKAGE SIZE:\n $mediList[k].id\n");
                           Response resp = await http.get(Uri.parse(
                               'https://medication.med-united.health/ajax/search/drugs/auto/?query=${mediList[k].id}'));
 
@@ -464,6 +465,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                   ? int.parse(jsonDecode(resp.body)["results"]
                               [0]["packaging"]["quantity"])
                                   : 0);
+                          print("----- mediList[$k] AFTER RETRIEVING NAME AND PACKAGE SIZE:\n $mediList[k]");
                         }
 
                         MedicationPlan medicationPlan = MedicationPlan();
@@ -895,7 +897,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                           flashlightEnable: true,
                                           scanAreaScale: 0.7);
 
-                                      print(barcodeScanRes);
+                                      print("----- barcodeScanRes: $barcodeScanRes");
                                       /*        await FlutterBarcodeScanner
                                               .scanBarcode(
                                                   "#ff6666",
@@ -909,6 +911,8 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                             barcodeScanRes?.replaceAll("-", "");
                                         Response resp = await http.get(Uri.parse(
                                             'https://medication.med-united.health/ajax/search/drugs/auto/?query=$barcodeScanRes'));
+
+                                        print("----- resp2: $resp");
 
                                         if (jsonDecode(resp.body)["results"]
                                             .length !=

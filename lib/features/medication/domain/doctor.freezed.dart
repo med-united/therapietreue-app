@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'doctor.dart';
 
@@ -21,8 +21,7 @@ Doctor _$DoctorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Doctor {
   String? get id => throw _privateConstructorUsedError;
-  String? get surname => throw _privateConstructorUsedError;
-  String? get lastname => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get street => throw _privateConstructorUsedError;
   int? get zipCode => throw _privateConstructorUsedError;
   String? get city => throw _privateConstructorUsedError;
@@ -41,8 +40,7 @@ abstract class $DoctorCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? surname,
-      String? lastname,
+      String? name,
       String? street,
       int? zipCode,
       String? city,
@@ -64,8 +62,7 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
   @override
   $Res call({
     Object? id = freezed,
-    Object? surname = freezed,
-    Object? lastname = freezed,
+    Object? name = freezed,
     Object? street = freezed,
     Object? zipCode = freezed,
     Object? city = freezed,
@@ -77,13 +74,9 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      surname: freezed == surname
-          ? _value.surname
-          : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastname: freezed == lastname
-          ? _value.lastname
-          : lastname // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       street: freezed == street
           ? _value.street
@@ -117,8 +110,7 @@ abstract class _$$_DoctorCopyWith<$Res> implements $DoctorCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? surname,
-      String? lastname,
+      String? name,
       String? street,
       int? zipCode,
       String? city,
@@ -137,8 +129,7 @@ class __$$_DoctorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? surname = freezed,
-    Object? lastname = freezed,
+    Object? name = freezed,
     Object? street = freezed,
     Object? zipCode = freezed,
     Object? city = freezed,
@@ -150,13 +141,9 @@ class __$$_DoctorCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      surname: freezed == surname
-          ? _value.surname
-          : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lastname: freezed == lastname
-          ? _value.lastname
-          : lastname // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       street: freezed == street
           ? _value.street
@@ -187,8 +174,7 @@ class __$$_DoctorCopyWithImpl<$Res>
 class _$_Doctor extends _Doctor {
   _$_Doctor(
       {this.id,
-      this.surname,
-      this.lastname,
+      this.name,
       this.street,
       this.zipCode,
       this.city,
@@ -202,9 +188,7 @@ class _$_Doctor extends _Doctor {
   @override
   final String? id;
   @override
-  final String? surname;
-  @override
-  final String? lastname;
+  final String? name;
   @override
   final String? street;
   @override
@@ -218,7 +202,7 @@ class _$_Doctor extends _Doctor {
 
   @override
   String toString() {
-    return 'Doctor(id: $id, surname: $surname, lastname: $lastname, street: $street, zipCode: $zipCode, city: $city, mail: $mail, date: $date)';
+    return 'Doctor(id: $id, name: $name, street: $street, zipCode: $zipCode, city: $city, mail: $mail, date: $date)';
   }
 
   @override
@@ -227,9 +211,7 @@ class _$_Doctor extends _Doctor {
         (other.runtimeType == runtimeType &&
             other is _$_Doctor &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.surname, surname) || other.surname == surname) &&
-            (identical(other.lastname, lastname) ||
-                other.lastname == lastname) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.street, street) || other.street == street) &&
             (identical(other.zipCode, zipCode) || other.zipCode == zipCode) &&
             (identical(other.city, city) || other.city == city) &&
@@ -239,8 +221,8 @@ class _$_Doctor extends _Doctor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, surname, lastname, street, zipCode, city, mail, date);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, street, zipCode, city, mail, date);
 
   @JsonKey(ignore: true)
   @override
@@ -259,8 +241,7 @@ class _$_Doctor extends _Doctor {
 abstract class _Doctor extends Doctor {
   factory _Doctor(
       {final String? id,
-      final String? surname,
-      final String? lastname,
+      final String? name,
       final String? street,
       final int? zipCode,
       final String? city,
@@ -273,9 +254,7 @@ abstract class _Doctor extends Doctor {
   @override
   String? get id;
   @override
-  String? get surname;
-  @override
-  String? get lastname;
+  String? get name;
   @override
   String? get street;
   @override

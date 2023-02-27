@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user.dart';
 
@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String? get id => throw _privateConstructorUsedError;
-  String? get surname => throw _privateConstructorUsedError;
+  String? get firstname => throw _privateConstructorUsedError;
   String? get lastname => throw _privateConstructorUsedError;
   FileReference? get image => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? surname,
+      String? firstname,
       String? lastname,
       FileReference? image,
       DateTime? createdAt,
@@ -62,7 +62,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = freezed,
-    Object? surname = freezed,
+    Object? firstname = freezed,
     Object? lastname = freezed,
     Object? image = freezed,
     Object? createdAt = freezed,
@@ -73,9 +73,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      surname: freezed == surname
-          ? _value.surname
-          : surname // ignore: cast_nullable_to_non_nullable
+      firstname: freezed == firstname
+          ? _value.firstname
+          : firstname // ignore: cast_nullable_to_non_nullable
               as String?,
       lastname: freezed == lastname
           ? _value.lastname
@@ -117,7 +117,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      String? surname,
+      String? firstname,
       String? lastname,
       FileReference? image,
       DateTime? createdAt,
@@ -137,7 +137,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @override
   $Res call({
     Object? id = freezed,
-    Object? surname = freezed,
+    Object? firstname = freezed,
     Object? lastname = freezed,
     Object? image = freezed,
     Object? createdAt = freezed,
@@ -148,9 +148,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      surname: freezed == surname
-          ? _value.surname
-          : surname // ignore: cast_nullable_to_non_nullable
+      firstname: freezed == firstname
+          ? _value.firstname
+          : firstname // ignore: cast_nullable_to_non_nullable
               as String?,
       lastname: freezed == lastname
           ? _value.lastname
@@ -177,7 +177,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 class _$_User extends _User {
   _$_User(
       {this.id,
-      this.surname,
+      this.firstname,
       this.lastname,
       this.image,
       this.createdAt,
@@ -189,7 +189,7 @@ class _$_User extends _User {
   @override
   final String? id;
   @override
-  final String? surname;
+  final String? firstname;
   @override
   final String? lastname;
   @override
@@ -201,7 +201,7 @@ class _$_User extends _User {
 
   @override
   String toString() {
-    return 'User(id: $id, surname: $surname, lastname: $lastname, image: $image, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, firstname: $firstname, lastname: $lastname, image: $image, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -210,7 +210,8 @@ class _$_User extends _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.surname, surname) || other.surname == surname) &&
+            (identical(other.firstname, firstname) ||
+                other.firstname == firstname) &&
             (identical(other.lastname, lastname) ||
                 other.lastname == lastname) &&
             (identical(other.image, image) || other.image == image) &&
@@ -223,7 +224,7 @@ class _$_User extends _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, surname, lastname, image, createdAt, updatedAt);
+      runtimeType, id, firstname, lastname, image, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -242,7 +243,7 @@ class _$_User extends _User {
 abstract class _User extends User {
   factory _User(
       {final String? id,
-      final String? surname,
+      final String? firstname,
       final String? lastname,
       final FileReference? image,
       final DateTime? createdAt,
@@ -254,7 +255,7 @@ abstract class _User extends User {
   @override
   String? get id;
   @override
-  String? get surname;
+  String? get firstname;
   @override
   String? get lastname;
   @override

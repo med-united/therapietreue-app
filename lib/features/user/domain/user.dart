@@ -10,7 +10,7 @@ class User with _$User {
 
   factory User(
       {final String? id,
-      String? surname,
+      String? firstname,
       String? lastname,
       FileReference? image,
       DateTime? createdAt,
