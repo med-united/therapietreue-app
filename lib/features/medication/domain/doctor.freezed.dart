@@ -23,10 +23,10 @@ mixin _$Doctor {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get street => throw _privateConstructorUsedError;
-  int? get zipCode => throw _privateConstructorUsedError;
+  int? get postalCode => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get city => throw _privateConstructorUsedError;
-  String? get mail => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,10 +43,10 @@ abstract class $DoctorCopyWith<$Res> {
       {String? id,
       String? name,
       String? street,
-      int? zipCode,
+      int? postalCode,
       String? phone,
       String? city,
-      String? mail,
+      String? email,
       String? date});
 }
 
@@ -66,10 +66,10 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
     Object? id = freezed,
     Object? name = freezed,
     Object? street = freezed,
-    Object? zipCode = freezed,
+    Object? postalCode = freezed,
     Object? phone = freezed,
     Object? city = freezed,
-    Object? mail = freezed,
+    Object? email = freezed,
     Object? date = freezed,
   }) {
     return _then(_value.copyWith(
@@ -85,9 +85,9 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      zipCode: freezed == zipCode
-          ? _value.zipCode
-          : zipCode // ignore: cast_nullable_to_non_nullable
+      postalCode: freezed == postalCode
+          ? _value.postalCode
+          : postalCode // ignore: cast_nullable_to_non_nullable
               as int?,
       phone: freezed == phone
           ? _value.phone
@@ -97,9 +97,9 @@ class _$DoctorCopyWithImpl<$Res, $Val extends Doctor>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      mail: freezed == mail
-          ? _value.mail
-          : mail // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       date: freezed == date
           ? _value.date
@@ -119,10 +119,10 @@ abstract class _$$_DoctorCopyWith<$Res> implements $DoctorCopyWith<$Res> {
       {String? id,
       String? name,
       String? street,
-      int? zipCode,
+      int? postalCode,
       String? phone,
       String? city,
-      String? mail,
+      String? email,
       String? date});
 }
 
@@ -139,10 +139,10 @@ class __$$_DoctorCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? street = freezed,
-    Object? zipCode = freezed,
+    Object? postalCode = freezed,
     Object? phone = freezed,
     Object? city = freezed,
-    Object? mail = freezed,
+    Object? email = freezed,
     Object? date = freezed,
   }) {
     return _then(_$_Doctor(
@@ -158,9 +158,9 @@ class __$$_DoctorCopyWithImpl<$Res>
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      zipCode: freezed == zipCode
-          ? _value.zipCode
-          : zipCode // ignore: cast_nullable_to_non_nullable
+      postalCode: freezed == postalCode
+          ? _value.postalCode
+          : postalCode // ignore: cast_nullable_to_non_nullable
               as int?,
       phone: freezed == phone
           ? _value.phone
@@ -170,9 +170,9 @@ class __$$_DoctorCopyWithImpl<$Res>
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      mail: freezed == mail
-          ? _value.mail
-          : mail // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       date: freezed == date
           ? _value.date
@@ -189,10 +189,10 @@ class _$_Doctor extends _Doctor {
       {this.id,
       this.name,
       this.street,
-      this.zipCode,
+      this.postalCode,
       this.phone,
       this.city,
-      this.mail,
+      this.email,
       this.date})
       : super._();
 
@@ -206,19 +206,19 @@ class _$_Doctor extends _Doctor {
   @override
   final String? street;
   @override
-  final int? zipCode;
+  final int? postalCode;
   @override
   final String? phone;
   @override
   final String? city;
   @override
-  final String? mail;
+  final String? email;
   @override
   final String? date;
 
   @override
   String toString() {
-    return 'Doctor(id: $id, name: $name, street: $street, zipCode: $zipCode, phone: $phone, city: $city, mail: $mail, date: $date)';
+    return 'Doctor(id: $id, name: $name, street: $street, postalCode: $postalCode, phone: $phone, city: $city, email: $email, date: $date)';
   }
 
   @override
@@ -229,17 +229,18 @@ class _$_Doctor extends _Doctor {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.street, street) || other.street == street) &&
-            (identical(other.zipCode, zipCode) || other.zipCode == zipCode) &&
+            (identical(other.postalCode, postalCode) ||
+                other.postalCode == postalCode) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.city, city) || other.city == city) &&
-            (identical(other.mail, mail) || other.mail == mail) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, street, zipCode, phone, city, mail, date);
+      runtimeType, id, name, street, postalCode, phone, city, email, date);
 
   @JsonKey(ignore: true)
   @override
@@ -260,10 +261,10 @@ abstract class _Doctor extends Doctor {
       {final String? id,
       final String? name,
       final String? street,
-      final int? zipCode,
+      final int? postalCode,
       final String? phone,
       final String? city,
-      final String? mail,
+      final String? email,
       final String? date}) = _$_Doctor;
   _Doctor._() : super._();
 
@@ -276,13 +277,13 @@ abstract class _Doctor extends Doctor {
   @override
   String? get street;
   @override
-  int? get zipCode;
+  int? get postalCode;
   @override
   String? get phone;
   @override
   String? get city;
   @override
-  String? get mail;
+  String? get email;
   @override
   String? get date;
   @override

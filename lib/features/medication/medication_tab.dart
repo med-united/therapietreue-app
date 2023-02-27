@@ -341,10 +341,10 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                         doctor = doctor.copyWith(
                             name: json['MP']['A']['n'],
                             street: json['MP']['A']['s'],
-                            zipCode: int.parse(json['MP']['A']['z'] ?? "76137"),
+                            postalCode: int.parse(json['MP']['A']['z'] ?? "76137"),
                             phone: json['MP']['A']['p'],
                             city: json['MP']['A']['c'],
-                            mail: json['MP']['A']['e'],
+                            email: json['MP']['A']['e'],
                             date: json['MP']['A']['t']);
 
                         List<Medication> mediList = [];

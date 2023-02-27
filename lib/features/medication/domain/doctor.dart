@@ -11,10 +11,10 @@ class Doctor with _$Doctor {
       {final String? id,
       String? name,
       String? street,
-      int? zipCode,
+      int? postalCode,
       String? phone,
       String? city,
-      String? mail,
+      String? email,
       String? date}) = _Doctor;
 
   factory Doctor.fromJson(Map<String, dynamic> json) => _$DoctorFromJson(json);

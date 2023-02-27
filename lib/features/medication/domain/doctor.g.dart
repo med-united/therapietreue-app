@@ -10,10 +10,10 @@ _$_Doctor _$$_DoctorFromJson(Map json) => _$_Doctor(
       id: json['id'] as String?,
       name: json['name'] as String?,
       street: json['street'] as String?,
-      zipCode: json['zipCode'] as int?,
+      postalCode: json['postalCode'] as int?,
       phone: json['phone'] as String?,
       city: json['city'] as String?,
-      mail: json['mail'] as String?,
+      email: json['email'] as String?,
       date: json['date'] as String?,
     );
 
@@ -21,9 +21,9 @@ Map<String, dynamic> _$$_DoctorToJson(_$_Doctor instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'street': instance.street,
-      'zipCode': instance.zipCode,
+      'postalCode': instance.postalCode,
       'phone': instance.phone,
       'city': instance.city,
-      'mail': instance.mail,
+      'email': instance.email,
       'date': instance.date,
     };
