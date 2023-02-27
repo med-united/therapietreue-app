@@ -62,7 +62,7 @@ class MedicationPlanRepositoryImpl extends MedicationPlanRepository {
         id: Uuid().v4(),
         createdAt: DateTimeMock.now(),
         updatedAt: DateTimeMock.now());
-
+    print("---> NEW MEDICATION CREATED");
     return dbApi
         .create(
             table: MedicationPlanRepository.TABLE,

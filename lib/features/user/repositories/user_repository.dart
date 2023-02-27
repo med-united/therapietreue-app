@@ -39,6 +39,7 @@ class UserRepositoryImpl extends UserRepository {
   Future<ApiResponse<User, DBException>> updateUser({required User user}) {
     LocalDB dbApi = ref.read(localDBProvider);
     user = user.copyWith(updatedAt: DateTimeMock.now());
+    print("---> USER UPDATED: $user");
     return dbApi
         .update(table: UserRepository.TABLE, docId: dbKey, value: user.toJson())
         .then((value) => value.mapData((data) => User.fromJson(data)));
@@ -51,7 +52,7 @@ class UserRepositoryImpl extends UserRepository {
         id: Uuid().v4(),
         createdAt: DateTimeMock.now(),
         updatedAt: DateTimeMock.now());
-
+    print("---> NEW USER CREATED");
     return dbApi
         .create(table: UserRepository.TABLE, docId: dbKey, value: user.toJson())
         .then((value) => value.mapData((data) => User.fromJson(data)));

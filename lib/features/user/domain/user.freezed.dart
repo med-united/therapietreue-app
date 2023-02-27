@@ -20,6 +20,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  String? get id => throw _privateConstructorUsedError;
   String? get birthDate => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String? birthDate,
+      {String? id,
+      String? birthDate,
       String? firstName,
       String? lastName,
       FileReference? image,
@@ -61,6 +63,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? birthDate = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -69,6 +72,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
@@ -116,7 +123,8 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? birthDate,
+      {String? id,
+      String? birthDate,
       String? firstName,
       String? lastName,
       FileReference? image,
@@ -136,6 +144,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? birthDate = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
@@ -144,6 +153,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_User(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
@@ -176,7 +189,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User extends _User {
   _$_User(
-      {this.birthDate,
+      {this.id,
+      this.birthDate,
       this.firstName,
       this.lastName,
       this.image,
@@ -186,6 +200,8 @@ class _$_User extends _User {
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? birthDate;
   @override
@@ -201,7 +217,7 @@ class _$_User extends _User {
 
   @override
   String toString() {
-    return 'User(birthDate: $birthDate, firstName: $firstName, lastName: $lastName, image: $image, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, birthDate: $birthDate, firstName: $firstName, lastName: $lastName, image: $image, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -209,6 +225,7 @@ class _$_User extends _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_User &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate) &&
             (identical(other.firstName, firstName) ||
@@ -224,8 +241,8 @@ class _$_User extends _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, birthDate, firstName, lastName, image, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, birthDate, firstName,
+      lastName, image, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -243,7 +260,8 @@ class _$_User extends _User {
 
 abstract class _User extends User {
   factory _User(
-      {final String? birthDate,
+      {final String? id,
+      final String? birthDate,
       final String? firstName,
       final String? lastName,
       final FileReference? image,
@@ -253,6 +271,8 @@ abstract class _User extends User {
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
+  @override
+  String? get id;
   @override
   String? get birthDate;
   @override
