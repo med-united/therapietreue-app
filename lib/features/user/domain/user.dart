@@ -10,8 +10,8 @@ class User with _$User {
 
   factory User(
       {final String? birthDate,
-      String? firstname,
-      String? lastname,
+      String? firstName,
+      String? lastName,
       FileReference? image,
       DateTime? createdAt,
       DateTime? updatedAt}) = _User;

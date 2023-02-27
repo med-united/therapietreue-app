@@ -8,8 +8,8 @@ part of 'user.dart';
 
 _$_User _$$_UserFromJson(Map json) => _$_User(
       birthDate: json['birthDate'] as String?,
-      firstname: json['firstname'] as String?,
-      lastname: json['lastname'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
       image: json['image'] == null
           ? null
           : FileReference.fromJson(
@@ -24,8 +24,8 @@ _$_User _$$_UserFromJson(Map json) => _$_User(
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'birthDate': instance.birthDate,
-      'firstname': instance.firstname,
-      'lastname': instance.lastname,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
       'image': instance.image?.toJson(),
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
