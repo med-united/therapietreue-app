@@ -335,7 +335,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                         user = user.copyWith(
                             firstname: json['MP']['P']['g'],
                             lastname: json['MP']['P']['f'],
-                            id: json['MP']['P']['b']);
+                            birthDate: json['MP']['P']['b']);
 
                         Doctor doctor = Doctor();
                         doctor = doctor.copyWith(

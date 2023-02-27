@@ -9,7 +9,7 @@ class User with _$User {
   User._();
 
   factory User(
-      {final String? id,
+      {final String? birthDate,
       String? firstname,
       String? lastname,
       FileReference? image,
