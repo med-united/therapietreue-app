@@ -7,7 +7,7 @@ part of 'medication.dart';
 // **************************************************************************
 
 _$_Medication _$$_MedicationFromJson(Map json) => _$_Medication(
-      id: json['id'] as String?,
+      pzn: json['pzn'] as String?,
       amountMorning: (json['amountMorning'] as num?)?.toDouble(),
       amountMidday: (json['amountMidday'] as num?)?.toDouble(),
       amountEvening: (json['amountEvening'] as num?)?.toDouble(),
@@ -21,7 +21,7 @@ _$_Medication _$$_MedicationFromJson(Map json) => _$_Medication(
 
 Map<String, dynamic> _$$_MedicationToJson(_$_Medication instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'pzn': instance.pzn,
       'amountMorning': instance.amountMorning,
       'amountMidday': instance.amountMidday,
       'amountEvening': instance.amountEvening,

@@ -8,7 +8,7 @@ class Medication with _$Medication {
   Medication._();
 
   factory Medication(
-      {final String? id,
+      {final String? pzn,
       double? amountMorning,
       double? amountMidday,
       double? amountEvening,

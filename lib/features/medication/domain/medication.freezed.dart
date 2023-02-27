@@ -20,7 +20,7 @@ Medication _$MedicationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Medication {
-  String? get id => throw _privateConstructorUsedError;
+  String? get pzn => throw _privateConstructorUsedError;
   double? get amountMorning => throw _privateConstructorUsedError;
   double? get amountMidday => throw _privateConstructorUsedError;
   double? get amountEvening => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $MedicationCopyWith<$Res> {
       _$MedicationCopyWithImpl<$Res, Medication>;
   @useResult
   $Res call(
-      {String? id,
+      {String? pzn,
       double? amountMorning,
       double? amountMidday,
       double? amountEvening,
@@ -69,7 +69,7 @@ class _$MedicationCopyWithImpl<$Res, $Val extends Medication>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? pzn = freezed,
     Object? amountMorning = freezed,
     Object? amountMidday = freezed,
     Object? amountEvening = freezed,
@@ -81,9 +81,9 @@ class _$MedicationCopyWithImpl<$Res, $Val extends Medication>
     Object? reason = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      pzn: freezed == pzn
+          ? _value.pzn
+          : pzn // ignore: cast_nullable_to_non_nullable
               as String?,
       amountMorning: freezed == amountMorning
           ? _value.amountMorning
@@ -134,7 +134,7 @@ abstract class _$$_MedicationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {String? pzn,
       double? amountMorning,
       double? amountMidday,
       double? amountEvening,
@@ -157,7 +157,7 @@ class __$$_MedicationCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? pzn = freezed,
     Object? amountMorning = freezed,
     Object? amountMidday = freezed,
     Object? amountEvening = freezed,
@@ -169,9 +169,9 @@ class __$$_MedicationCopyWithImpl<$Res>
     Object? reason = freezed,
   }) {
     return _then(_$_Medication(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      pzn: freezed == pzn
+          ? _value.pzn
+          : pzn // ignore: cast_nullable_to_non_nullable
               as String?,
       amountMorning: freezed == amountMorning
           ? _value.amountMorning
@@ -217,7 +217,7 @@ class __$$_MedicationCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Medication extends _Medication {
   _$_Medication(
-      {this.id,
+      {this.pzn,
       this.amountMorning,
       this.amountMidday,
       this.amountEvening,
@@ -233,7 +233,7 @@ class _$_Medication extends _Medication {
       _$$_MedicationFromJson(json);
 
   @override
-  final String? id;
+  final String? pzn;
   @override
   final double? amountMorning;
   @override
@@ -255,7 +255,7 @@ class _$_Medication extends _Medication {
 
   @override
   String toString() {
-    return 'Medication(id: $id, amountMorning: $amountMorning, amountMidday: $amountMidday, amountEvening: $amountEvening, amountNight: $amountNight, amountInfo: $amountInfo, name: $name, packageSize: $packageSize, info: $info, reason: $reason)';
+    return 'Medication(pzn: $pzn, amountMorning: $amountMorning, amountMidday: $amountMidday, amountEvening: $amountEvening, amountNight: $amountNight, amountInfo: $amountInfo, name: $name, packageSize: $packageSize, info: $info, reason: $reason)';
   }
 
   @override
@@ -263,7 +263,7 @@ class _$_Medication extends _Medication {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Medication &&
-            (identical(other.id, id) || other.id == id) &&
+            (identical(other.pzn, pzn) || other.pzn == pzn) &&
             (identical(other.amountMorning, amountMorning) ||
                 other.amountMorning == amountMorning) &&
             (identical(other.amountMidday, amountMidday) ||
@@ -283,7 +283,7 @@ class _$_Medication extends _Medication {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, amountMorning, amountMidday,
+  int get hashCode => Object.hash(runtimeType, pzn, amountMorning, amountMidday,
       amountEvening, amountNight, amountInfo, name, packageSize, info, reason);
 
   @JsonKey(ignore: true)
@@ -302,7 +302,7 @@ class _$_Medication extends _Medication {
 
 abstract class _Medication extends Medication {
   factory _Medication(
-      {final String? id,
+      {final String? pzn,
       final double? amountMorning,
       final double? amountMidday,
       final double? amountEvening,
@@ -318,7 +318,7 @@ abstract class _Medication extends Medication {
       _$_Medication.fromJson;
 
   @override
-  String? get id;
+  String? get pzn;
   @override
   double? get amountMorning;
   @override

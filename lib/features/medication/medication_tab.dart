@@ -356,7 +356,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                 if (val['p'] != null) {
                                   Medication medication = Medication();
                                   medication = medication.copyWith(
-                                      id: val['p'].toString(),
+                                      pzn: val['p'].toString(),
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
@@ -375,7 +375,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             } else {
                               Medication medication = Medication();
                               medication = medication.copyWith(
-                                  id: val1['M']['p'].toString(),
+                                  pzn: val1['M']['p'].toString(),
                                   reason: val1['M']['r'],
                                   info: val1['M']['i'],
                                   amountInfo: val1['M']['t'],
@@ -400,7 +400,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                 Medication medication = Medication();
                                 try {
                                   medication = medication.copyWith(
-                                      id: val['p'].toString(),
+                                      pzn: val['p'].toString(),
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
@@ -422,7 +422,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                           } else {
                             Medication medication = Medication();
                             medication = medication.copyWith(
-                                id: val1['M']['p'].toString(),
+                                pzn: val1['M']['p'].toString(),
                                 reason: val1['M']['r'],
                                 info: val1['M']['i'],
                                 amountInfo: val1['M']['t'],
@@ -451,9 +451,9 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                         for (int k = 0; k < mediList.length; k++) {
                           // showDebugErrorToast("medication");
-                          print("-----mediList[$k].id BEFORE RETRIEVING NAME AND PACKAGE SIZE:\n $mediList[k].id\n");
+                          print("-----mediList[$k].pzn BEFORE RETRIEVING NAME AND PACKAGE SIZE:\n $mediList[k].pzn\n");
                           Response resp = await http.get(Uri.parse(
-                              'https://medication.med-united.health/ajax/search/drugs/auto/?query=${mediList[k].id}'));
+                              'https://medication.med-united.health/ajax/search/drugs/auto/?query=${mediList[k].pzn}'));
 
                           mediList[k] = mediList[k].copyWith(
                               name: jsonDecode(resp.body)["results"][0]
