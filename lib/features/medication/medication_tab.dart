@@ -12,6 +12,7 @@ import 'package:therapietreu/features/medication/domain/doctor.dart';
 import 'package:therapietreu/features/medication/domain/medication.dart';
 import 'package:therapietreu/features/medication/domain/medication_plan.dart';
 import 'package:therapietreu/features/medication/medication_detail_screen.dart';
+import 'package:therapietreu/features/medication/privacy_policy_screen.dart';
 import 'package:therapietreu/features/medication/states/medication_plans_state.dart';
 import 'package:therapietreu/features/medication/user_detail_screen.dart';
 import 'package:therapietreu/ui/theme/theme_colors.dart';
@@ -1002,7 +1003,10 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
       // Do something when Option 2 is selected
         break;
       case 3:
-      // Do something when Option 3 is selected
+        await Navigator.of(context)
+            .push(MaterialPageRoute(
+            builder: (context) =>
+                const PrivacyPolicyScreen()));
         break;
     }
   }
