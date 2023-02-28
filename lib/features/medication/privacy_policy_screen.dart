@@ -1,5 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../../ui/theme/theme_colors.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
@@ -19,10 +20,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: SizedBox(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width * 0.3,
+          width: MediaQuery.of(context).size.width * 0.3,
           child: Image.asset(
             'assets/images/logo.png',
           ),
@@ -38,7 +36,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child:
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
               'Datenschutzerklärung Therapietreue.App',
               style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
@@ -80,25 +78,24 @@ class PrivacyPolicyScreen extends StatelessWidget {
               color: ThemeColors.secondaryColor,
               child: Padding(
                 padding: EdgeInsets.all(12.0),
-                child: Row(
-                    children: [Text(
-                      'Incentergy GmbH\nAchenseeweg 50\nD-12209 Berlin\nTelefon\n+49 – 173 632 2621\nE-Mail info@incentergy.de\t\t\t\t\t',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.normal,
-                      ),
+                child: Row(children: [
+                  Text(
+                    'Incentergy GmbH\nAchenseeweg 50\nD-12209 Berlin\nTelefon\n+49 – 173 632 2621\nE-Mail info@incentergy.de\t\t\t\t\t',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.normal,
                     ),
-                      Text(
-                        'Sitz der Gesellschaft:\nBerlin – Handelsregister\nAmtsgericht Berlin\n(Charlottenburg)\nHRB214370\nUSt-IdNr: DE301069501',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ]
-                ),
+                  ),
+                  Text(
+                    'Sitz der Gesellschaft:\nBerlin – Handelsregister\nAmtsgericht Berlin\n(Charlottenburg)\nHRB214370\nUSt-IdNr: DE301069501',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ]),
               ),
             ),
             SizedBox(height: 8.0),
@@ -195,49 +192,56 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '• Einzulesen per Datamatrixcode mithilfe des Kamerascans\n',
+                    text:
+                        '• Einzulesen per Datamatrixcode mithilfe des Kamerascans\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '• Beim Einscannen Ihres bundeseinheitlichen Medikationsplan (BMP) mit der Therapietreue.App, werden die im Medikationsplan enthaltenen Daten in der Therapietreue.App erfasst. Diese können je nach Umfang der im Datamatrixcode enthaltenen Daten u.a., aber nicht ausschließlich, umfassen:\n',
+                    text:
+                        '• Beim Einscannen Ihres bundeseinheitlichen Medikationsplan (BMP) mit der Therapietreue.App, werden die im Medikationsplan enthaltenen Daten in der Therapietreue.App erfasst. Diese können je nach Umfang der im Datamatrixcode enthaltenen Daten u.a., aber nicht ausschließlich, umfassen:\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '     ◦ Allgemeine Daten (Vor- und Nachname, Geburtsdatum, Adresse)\n',
+                    text:
+                        '     ◦ Allgemeine Daten (Vor- und Nachname, Geburtsdatum, Adresse)\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '     ◦ Medizinische Daten (Allergien, Unverträglichkeiten)\n',
+                    text:
+                        '     ◦ Medizinische Daten (Allergien, Unverträglichkeiten)\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '     ◦ Medikationsplan (Pharmazentralnummern, Medikamentennamen, Wirkstoffe, Darreichungsform, Dosierung, Einnahmezeiten, Hinweis der verordnenden ÄrztInnen, Grund der Einnahme)\n',
+                    text:
+                        '     ◦ Medikationsplan (Pharmazentralnummern, Medikamentennamen, Wirkstoffe, Darreichungsform, Dosierung, Einnahmezeiten, Hinweis der verordnenden ÄrztInnen, Grund der Einnahme)\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '     ◦ Informationen über die ausstellende Person (Name, Kontaktdaten)\n',
+                    text:
+                        '     ◦ Informationen über die ausstellende Person (Name, Kontaktdaten)\n',
                     style: TextStyle(fontSize: 16),
                   ),
                   WidgetSpan(
                     child: SizedBox(height: 24.0),
                   ),
                   TextSpan(
-                    text: '• Diese Informationen werden lokal auf dem Endgerät gespeichert.\n',
+                    text:
+                        '• Diese Informationen werden lokal auf dem Endgerät gespeichert.\n',
                     style: TextStyle(fontSize: 16),
                   ),
                 ],
@@ -248,14 +252,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8.0),
-              Text.rich(
+            Text.rich(
+              TextSpan(children: [
                 TextSpan(
-                children: [
-                TextSpan(
-                text: '• Mitteilungen zulassen: Bei der Nutzung der Therapietreue.App, erinnern wir Sie zu festgelegten Zeiten an die in Ihrem BMP bestimmte Einnahme Ihrer Medikamente. Diese Erinnerungen werden lokal auf Ihrem Endgerät erzeugt. Es erfolgt keine Datenspeicherung auf den Servern der Incentergy GmbH.\n',
-                style: TextStyle(fontSize: 16),
+                  text:
+                      '• Mitteilungen zulassen: Bei der Nutzung der Therapietreue.App, erinnern wir Sie zu festgelegten Zeiten an die in Ihrem BMP bestimmte Einnahme Ihrer Medikamente. Diese Erinnerungen werden lokal auf Ihrem Endgerät erzeugt. Es erfolgt keine Datenspeicherung auf den Servern der Incentergy GmbH.\n',
+                  style: TextStyle(fontSize: 16),
                 ),
-              ]),),
+              ]),
+            ),
             Text(
               '2.3 Datenübermittlung an/von genutzten(m) Services',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
@@ -361,9 +366,46 @@ class PrivacyPolicyScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8.0),
-            Text(
-              'Wir behalten uns das Recht vor, diese Datenschutzrichtlinie zu ändern. Dies kann insbesondere bei Erweiterungen der Funktionalität der Therapietreue.App notwendig werden. Die jeweils aktuelle Fassung der Datenschutzerklärung finden Sie auf unserer Webseite unter https://med-united.health.',
-              style: TextStyle(fontSize: 16.0),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text:
+                        'Wir behalten uns das Recht vor, diese Datenschutzrichtlinie zu ändern. Dies kann insbesondere bei Erweiterungen der Funktionalität der Therapietreue.App notwendig werden. Die jeweils aktuelle Fassung der Datenschutzerklärung finden Sie auf unserer Webseite unter ',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'https://med-united.health',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () async {
+                        final uri = Uri.parse('https://med-united.health');
+                        if (await canLaunchUrl(uri)) {
+                          await launchUrl(
+                            uri,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        } else {
+                          throw 'Could not launch $uri';
+                        }
+                      },
+                  ),
+                  TextSpan(
+                    text: '.',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: 8.0),
             Text(
