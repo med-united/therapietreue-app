@@ -71,7 +71,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                 width: 250,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: ThemeColors.secondaryColor,
+                  color: Colors.white,
                   // set the background color
                   borderRadius: BorderRadius.circular(16), // optional: add border radius to the container
                 ),
@@ -79,7 +79,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                   child: Text(
                     'DataMatrix-Code scannen',
                     style: ThemeConstants.primaryFont
-                        .copyWith(fontSize: 15, fontWeight: FontWeight.normal),
+                        .copyWith(fontSize: 20, fontWeight: FontWeight.normal),
                   ),
                 ),
               ),
