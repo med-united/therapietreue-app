@@ -356,9 +356,47 @@ class PrivacyPolicyScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16.0),
             ),
             SizedBox(height: 8.0),
-            Text(
-              'Der Widerruf ist in Schriftform an oben genannte Postadresse (siehe Abschnitt 1.1) oder per E-Mail an datenschutz@incentergy.de möglich. Bitte beachten Sie, dass die Möglichkeit zur Nutzung der Therapietreue.App nach dem Widerruf Ihrer Einwilligung eingeschränkt bzw. ausgeschlossen sein kann.',
-              style: TextStyle(fontSize: 16.0),
+            Text.rich(
+              TextSpan(children: [
+                TextSpan(
+                  text:
+                      'Der Widerruf ist in Schriftform an oben genannte Postadresse (siehe Abschnitt 1.1) oder per E-Mail an ',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black,
+                  ),
+                ),
+                TextSpan(
+                  text: 'datenschutz@incentergy.de',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      String receiver =
+                          Uri.encodeComponent("datenschutz@incentergy.de");
+                      String subject = Uri.encodeComponent("Datenschutzerklärung Therapietreue.App");
+                      String body =
+                          Uri.encodeComponent("Über Datenschutzerklärung Therapietreue.App");
+                      Uri email = Uri.parse(
+                          "mailto:$receiver?subject=$subject&body=$body");
+                      if (await canLaunchUrl(email)) {
+                        await launchUrl(
+                          email,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } else {
+                        throw 'Could not launch $email';
+                      }
+                    },
+                ),
+                TextSpan(
+                    text:
+                        ' möglich. Bitte beachten Sie, dass die Möglichkeit zur Nutzung der Therapietreue.App nach dem Widerruf Ihrer Einwilligung eingeschränkt bzw. ausgeschlossen sein kann.',
+                    style: TextStyle(fontSize: 16.0)),
+              ]),
             ),
             SizedBox(height: 16.0),
             Text(
