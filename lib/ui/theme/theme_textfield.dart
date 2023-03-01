@@ -17,7 +17,7 @@ class ThemeTextfield extends StatelessWidget {
   final bool isNumber;
   final bool isDecimal;
   final FocusNode? focusNode;
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
   final bool enabled;
   final int minLines;
   final int maxLines;
@@ -36,7 +36,7 @@ class ThemeTextfield extends StatelessWidget {
       this.isNumber = false,
       this.isDecimal = false,
       this.focusNode,
-      this.padding = const EdgeInsets.all(8.0),
+      this.padding,
       this.enabled = true,
       this.minLines = 1,
       this.textAlign = TextAlign.start,

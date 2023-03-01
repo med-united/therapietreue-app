@@ -221,33 +221,37 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                       flex: 1,
                       child: Padding(
                         padding: const EdgeInsets.all(20),
-                        child: CircleAvatar(
-                          radius: 52,
-                          backgroundColor: ThemeColors.primaryColor,
-                          child: GestureDetector(
-                            behavior: HitTestBehavior.translucent,
-                            onTap: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(
-                                  builder: (context) =>
-                                  const UserDetailScreen()))
-                                  .then((value) => setState(() {
-                                //   showDebugErrorToast(path);
-                                FocusManager.instance.primaryFocus
-                                    ?.unfocus();
+                        child: Material(
+                          elevation: 2, // Add this line to set elevation
+                          shape: CircleBorder(),
+                          child: CircleAvatar(
+                            radius: 52,
+                            backgroundColor: ThemeColors.primaryColor,
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.translucent,
+                              onTap: () {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(
+                                    builder: (context) =>
+                                    const UserDetailScreen()))
+                                    .then((value) => setState(() {
+                                  //   showDebugErrorToast(path);
+                                  FocusManager.instance.primaryFocus
+                                      ?.unfocus();
 
-                                path = path;
-                              }));
-                            },
-                            child: CircleAvatar(
-                              radius: 51,
-                              backgroundImage:
-                              FileImage(File(snapshot.data[1])),
-                              backgroundColor: ThemeColors.primaryColor,
-                              child: ThemeBodySText(
-                                (path == "") ? "Bild \n hinzufügen" : "",
-                                textAlign: TextAlign.center,
-                                textColor: Colors.white,
+                                  path = path;
+                                }));
+                              },
+                              child: CircleAvatar(
+                                radius: 51,
+                                backgroundImage:
+                                FileImage(File(snapshot.data[1])),
+                                backgroundColor: ThemeColors.primaryColor,
+                                child: ThemeBodySText(
+                                  (path == "") ? "Bild \n hinzufügen" : "",
+                                  textAlign: TextAlign.center,
+                                  textColor: Colors.white,
+                                ),
                               ),
                             ),
                           ),
@@ -265,22 +269,26 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                   padding: const EdgeInsets.only(left: 24),
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    child: ThemeTextfield(
-                      backgroundColor: const Color(0xffebf2f7),
-                      prefix: Padding(
-                        padding: const EdgeInsets.only(top: 6),
-                        child: Icon(Icons.search,
-                            size: 32,
-                            color: ThemeColors.primaryColor.withAlpha(100)),
+                    child: Material(
+                      elevation: 2,
+                      borderRadius: BorderRadius.circular(20),
+                        child: ThemeTextfield(
+                          backgroundColor: const Color(0xffebf2f7),
+                          prefix: Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Icon(Icons.search,
+                                size: 32,
+                                color: ThemeColors.primaryColor.withAlpha(100)),
+                          ),
+                          hint: "Suche",
+                          onEditingComplete: (text) {
+                            showFeatureDisabledDialog(context);
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
+                          controller: TextEditingController(),
+                        ),
                       ),
-                      hint: "Suche",
-                      onEditingComplete: (text) {
-                        showFeatureDisabledDialog(context);
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      controller: TextEditingController(),
                     ),
-                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
@@ -551,16 +559,18 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                         //showDebugErrorToast("No code was detected");
                       }
                     },
-                    child: Container(
-                      height: 52,
-                      width: 52,
-                      decoration: const BoxDecoration(
-                          color: ThemeColors.primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(16))),
-                      child: const Icon(
-                        Icons.qr_code_scanner_outlined,
-                        color: Colors.white,
-                        size: 36,
+                    child: Material(
+                      elevation: 2,
+                      borderRadius: BorderRadius.circular(16),
+                      color: ThemeColors.primaryColor,
+                      child: Container(
+                        height: 52,
+                        width: 52,
+                        child: const Icon(
+                          Icons.qr_code_scanner_outlined,
+                          color: Colors.white,
+                          size: 36,
+                        ),
                       ),
                     ),
                   ),

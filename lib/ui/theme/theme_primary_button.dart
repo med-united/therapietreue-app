@@ -55,6 +55,7 @@ class _ThemePrimaryButtonState extends State<ThemePrimaryButton> {
             }
           },
           style: ButtonStyle(
+              elevation: MaterialStateProperty.all<double>(2),
               backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   stateBackgroundColor),
               foregroundColor: MaterialStateProperty.resolveWith<Color>(

@@ -51,34 +51,38 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
               Padding(
                 padding: const EdgeInsets.only(
                     right: 32, left: 32, top: 32, bottom: 32),
-                child: CircleAvatar(
-                  radius: 82,
-                  backgroundColor: ThemeColors.primaryColor,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () async {
-                      final ImagePicker picker = ImagePicker();
-                      // Pick an image
+                child: Material(
+                  elevation: 2, // Add this line to set elevation
+                  shape: CircleBorder(),
+                  child: CircleAvatar(
+                    radius: 82,
+                    backgroundColor: ThemeColors.primaryColor,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: () async {
+                        final ImagePicker picker = ImagePicker();
+                        // Pick an image
 
-                      // showDebugErrorToast(picker.toString());
-                      final XFile? image =
-                          await picker.pickImage(source: ImageSource.gallery);
+                        // showDebugErrorToast(picker.toString());
+                        final XFile? image =
+                            await picker.pickImage(source: ImageSource.gallery);
 
-                      final prefs = await SharedPreferences.getInstance();
-                      await prefs.setString("image", image!.path);
+                        final prefs = await SharedPreferences.getInstance();
+                        await prefs.setString("image", image!.path);
 
-                      setState(() {
-                        path = image.path;
-                      });
-                    },
-                    child: CircleAvatar(
-                      radius: 80,
-                      backgroundImage: FileImage(File(path)),
-                      backgroundColor: ThemeColors.primaryColor,
-                      child: ThemeBodySText(
-                        (path == "") ? "Bild \n hinzufügen" : "",
-                        textAlign: TextAlign.center,
-                        textColor: Colors.white,
+                        setState(() {
+                          path = image.path;
+                        });
+                      },
+                      child: CircleAvatar(
+                        radius: 80,
+                        backgroundImage: FileImage(File(path)),
+                        backgroundColor: ThemeColors.primaryColor,
+                        child: ThemeBodySText(
+                          (path == "") ? "Bild \n hinzufügen" : "",
+                          textAlign: TextAlign.center,
+                          textColor: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -89,6 +93,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 child: Column(
                   children: [
                     ThemeTextfield(
+                      padding: EdgeInsets.all(8.0),
                       backgroundColor: const Color(0xffebf2f7),
                       hint: "Name",
                       controller: nameController,

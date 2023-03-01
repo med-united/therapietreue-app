@@ -66,32 +66,30 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
               Image.asset(
                 'assets/images/scanning-datamatrix.gif',
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 32),
               Container(
-                width: 250,
+                width: 350,
                 height: 40,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   // set the background color
                   borderRadius: BorderRadius.circular(16), // optional: add border radius to the container
                 ),
-                child: Center(
                   child: Text(
                     'DataMatrix-Code scannen',
                     style: ThemeConstants.primaryFont
-                        .copyWith(fontSize: 20, fontWeight: FontWeight.normal),
+                        .copyWith(fontSize: 24, fontWeight: FontWeight.normal),
                   ),
-                ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               buildButton(
                 title: 'Fotogalerie',
                 icon: Icons.image_outlined,
                 onClicked: () => pickImage(ImageSource.gallery, context),
               ),
-              Spacer(flex: 1),
+              Spacer(flex: 6),
               Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('\t\t\t\tVorhandenes Foto von DataMatrix-Code hinzufügen',
+                Text('\t\t\t\t\t\t\t\t\t\t\t\tVorhandenes Foto von DataMatrix-Code hinzufügen',
                     style: ThemeConstants.primaryFont
                         .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
               ]),
@@ -101,9 +99,9 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                 icon: Icons.camera_alt_outlined,
                 onClicked: () => pickImage(ImageSource.camera, context),
               ),
-              Spacer(flex: 1),
+              Spacer(flex: 6),
               Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('\t\t\t\tDataMatrix-Code fotografieren',
+                Text('\t\t\t\t\t\t\t\t\t\t\t\tDataMatrix-Code fotografieren',
                     style: ThemeConstants.primaryFont
                         .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
               ]),
@@ -118,14 +116,13 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
           required VoidCallback onClicked}) =>
       ElevatedButton(
         style: ElevatedButton.styleFrom(
+          fixedSize: Size(300, 56),
           foregroundColor: Colors.white,
           backgroundColor: ThemeColors.primaryColor,
-          elevation: 0,
+          elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(width: 3, color: Colors.white),
           ),
-          minimumSize: Size.fromHeight(56),
           textStyle: ThemeConstants.primaryFont
               .copyWith(fontSize: 19, fontWeight: FontWeight.normal),
         ),
