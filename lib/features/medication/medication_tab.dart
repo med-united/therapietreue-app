@@ -962,7 +962,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
       position: const RelativeRect.fromLTRB(0, 100, 0, 0),
       items: [
         PopupMenuItem(
-          child: const Text('How to use the app'),
+          child: const Text('So verwenden Sie die App'),
           value: 1,
         ),
         PopupMenuItem(
@@ -971,7 +971,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
             child: Row(
               children: [
                 Text(
-                  'About  ',
+                  'Über  ',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
@@ -989,7 +989,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
           value: 2,
         ),
         PopupMenuItem(
-          child: const Text('Privacy policy'),
+          child: const Text('Datenschutzerklärung'),
           value: 3,
         ),
       ],
