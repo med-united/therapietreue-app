@@ -214,7 +214,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                       child: Padding(
                         padding: const EdgeInsets.only(
                             left: 32, top: 32, bottom: 32),
-                        child: FittedBox(child: ThemeTitleLText("Hi $name")),
+                        child: FittedBox(child: ThemeTitleLText("Hallo $name")),
                       ),
                     ),
                     Flexible(
