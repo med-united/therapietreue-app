@@ -156,7 +156,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.info),
+          icon: const Icon(Icons.menu),
           color: ThemeColors.primaryColor,
           onPressed: () {
             _showPopupMenu(context);
