@@ -36,14 +36,16 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
         navigationBar: ThemeNavigationBar(
           context,
           title: "",
-          leading: [Material(
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          )],
+          leading: [
+            Material(
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            )
+          ],
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -52,7 +54,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 padding: const EdgeInsets.only(
                     right: 32, left: 32, top: 32, bottom: 32),
                 child: Material(
-                  elevation: 2, // Add this line to set elevation
+                  elevation: 2,
                   shape: CircleBorder(),
                   child: CircleAvatar(
                     radius: 82,
