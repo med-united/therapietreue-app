@@ -633,12 +633,17 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                       if (medication != null) {
                         return Padding(
-                          padding: const EdgeInsets.only(
-                              left: 32, top: 7, right: 32, bottom: 7),
-                          child: Material(
-                            elevation: 2,
-                            borderRadius: BorderRadius.circular(16),
-                          child: Container(
+                            padding: const EdgeInsets.only(
+                                left: 32, top: 7, right: 32, bottom: 7),
+                            child: Material(
+                              elevation: 2,
+                              borderRadius: BorderRadius.circular(16),
+                              child: GestureDetector(
+                                onTap: () => showModalBottomSheet(
+                                    context: context,
+                                    builder: (context) => buildSheet(medication)
+                                ),
+                                child: Container(
                             height: 80,
                             decoration: const BoxDecoration(
                                 color: Colors.white,
@@ -762,6 +767,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                             ),
                           ),
                           ),
+                            ),
                         );
                       } else if ((index !=
                           (medPlan?.medication?.length ?? 0))) {
@@ -1079,3 +1085,19 @@ double calculateAmountInFraction(fraction) {
   }
   return double.parse(parts[0]) / double.parse(parts[1]);
 }
+
+Widget buildSheet(medication) => Container(
+  child: SizedBox(
+    width: 330,
+    child: Column(
+        children: [
+          Text(
+            '${medication.name}\n\ninfo: ${medication.info}\n\npackageSize: ${medication.packageSize}\n\namountMorning: ${medication.amountMorning}\tamountMorningText: ${medication.amountMorningText}\namountMidday: ${medication.amountMidday}\tamountMiddayText: ${medication.amountMiddayText}\namountEvening: ${medication.amountEvening}\tamountEveningText: ${medication.amountEveningText}\namountNight: ${medication.amountNight}\tamountNightText: ${medication.amountNightText}\n\n$medication',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ]),
+  ),
+);
