@@ -22,9 +22,13 @@ Medication _$MedicationFromJson(Map<String, dynamic> json) {
 mixin _$Medication {
   String? get pzn => throw _privateConstructorUsedError;
   double? get amountMorning => throw _privateConstructorUsedError;
+  String? get amountMorningText => throw _privateConstructorUsedError;
   double? get amountMidday => throw _privateConstructorUsedError;
+  String? get amountMiddayText => throw _privateConstructorUsedError;
   double? get amountEvening => throw _privateConstructorUsedError;
+  String? get amountEveningText => throw _privateConstructorUsedError;
   double? get amountNight => throw _privateConstructorUsedError;
+  String? get amountNightText => throw _privateConstructorUsedError;
   String? get amountInfo => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get packageSize => throw _privateConstructorUsedError;
@@ -46,9 +50,13 @@ abstract class $MedicationCopyWith<$Res> {
   $Res call(
       {String? pzn,
       double? amountMorning,
+      String? amountMorningText,
       double? amountMidday,
+      String? amountMiddayText,
       double? amountEvening,
+      String? amountEveningText,
       double? amountNight,
+      String? amountNightText,
       String? amountInfo,
       String? name,
       int? packageSize,
@@ -71,9 +79,13 @@ class _$MedicationCopyWithImpl<$Res, $Val extends Medication>
   $Res call({
     Object? pzn = freezed,
     Object? amountMorning = freezed,
+    Object? amountMorningText = freezed,
     Object? amountMidday = freezed,
+    Object? amountMiddayText = freezed,
     Object? amountEvening = freezed,
+    Object? amountEveningText = freezed,
     Object? amountNight = freezed,
+    Object? amountNightText = freezed,
     Object? amountInfo = freezed,
     Object? name = freezed,
     Object? packageSize = freezed,
@@ -89,18 +101,34 @@ class _$MedicationCopyWithImpl<$Res, $Val extends Medication>
           ? _value.amountMorning
           : amountMorning // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountMorningText: freezed == amountMorningText
+          ? _value.amountMorningText
+          : amountMorningText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountMidday: freezed == amountMidday
           ? _value.amountMidday
           : amountMidday // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountMiddayText: freezed == amountMiddayText
+          ? _value.amountMiddayText
+          : amountMiddayText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountEvening: freezed == amountEvening
           ? _value.amountEvening
           : amountEvening // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountEveningText: freezed == amountEveningText
+          ? _value.amountEveningText
+          : amountEveningText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountNight: freezed == amountNight
           ? _value.amountNight
           : amountNight // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountNightText: freezed == amountNightText
+          ? _value.amountNightText
+          : amountNightText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountInfo: freezed == amountInfo
           ? _value.amountInfo
           : amountInfo // ignore: cast_nullable_to_non_nullable
@@ -136,9 +164,13 @@ abstract class _$$_MedicationCopyWith<$Res>
   $Res call(
       {String? pzn,
       double? amountMorning,
+      String? amountMorningText,
       double? amountMidday,
+      String? amountMiddayText,
       double? amountEvening,
+      String? amountEveningText,
       double? amountNight,
+      String? amountNightText,
       String? amountInfo,
       String? name,
       int? packageSize,
@@ -159,9 +191,13 @@ class __$$_MedicationCopyWithImpl<$Res>
   $Res call({
     Object? pzn = freezed,
     Object? amountMorning = freezed,
+    Object? amountMorningText = freezed,
     Object? amountMidday = freezed,
+    Object? amountMiddayText = freezed,
     Object? amountEvening = freezed,
+    Object? amountEveningText = freezed,
     Object? amountNight = freezed,
+    Object? amountNightText = freezed,
     Object? amountInfo = freezed,
     Object? name = freezed,
     Object? packageSize = freezed,
@@ -177,18 +213,34 @@ class __$$_MedicationCopyWithImpl<$Res>
           ? _value.amountMorning
           : amountMorning // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountMorningText: freezed == amountMorningText
+          ? _value.amountMorningText
+          : amountMorningText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountMidday: freezed == amountMidday
           ? _value.amountMidday
           : amountMidday // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountMiddayText: freezed == amountMiddayText
+          ? _value.amountMiddayText
+          : amountMiddayText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountEvening: freezed == amountEvening
           ? _value.amountEvening
           : amountEvening // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountEveningText: freezed == amountEveningText
+          ? _value.amountEveningText
+          : amountEveningText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountNight: freezed == amountNight
           ? _value.amountNight
           : amountNight // ignore: cast_nullable_to_non_nullable
               as double?,
+      amountNightText: freezed == amountNightText
+          ? _value.amountNightText
+          : amountNightText // ignore: cast_nullable_to_non_nullable
+              as String?,
       amountInfo: freezed == amountInfo
           ? _value.amountInfo
           : amountInfo // ignore: cast_nullable_to_non_nullable
@@ -219,9 +271,13 @@ class _$_Medication extends _Medication {
   _$_Medication(
       {this.pzn,
       this.amountMorning,
+      this.amountMorningText,
       this.amountMidday,
+      this.amountMiddayText,
       this.amountEvening,
+      this.amountEveningText,
       this.amountNight,
+      this.amountNightText,
       this.amountInfo,
       this.name,
       this.packageSize,
@@ -237,11 +293,19 @@ class _$_Medication extends _Medication {
   @override
   final double? amountMorning;
   @override
+  final String? amountMorningText;
+  @override
   final double? amountMidday;
+  @override
+  final String? amountMiddayText;
   @override
   final double? amountEvening;
   @override
+  final String? amountEveningText;
+  @override
   final double? amountNight;
+  @override
+  final String? amountNightText;
   @override
   final String? amountInfo;
   @override
@@ -255,7 +319,7 @@ class _$_Medication extends _Medication {
 
   @override
   String toString() {
-    return 'Medication(pzn: $pzn, amountMorning: $amountMorning, amountMidday: $amountMidday, amountEvening: $amountEvening, amountNight: $amountNight, amountInfo: $amountInfo, name: $name, packageSize: $packageSize, info: $info, reason: $reason)';
+    return 'Medication(pzn: $pzn, amountMorning: $amountMorning, amountMorningText: $amountMorningText, amountMidday: $amountMidday, amountMiddayText: $amountMiddayText, amountEvening: $amountEvening, amountEveningText: $amountEveningText, amountNight: $amountNight, amountNightText: $amountNightText, amountInfo: $amountInfo, name: $name, packageSize: $packageSize, info: $info, reason: $reason)';
   }
 
   @override
@@ -266,12 +330,20 @@ class _$_Medication extends _Medication {
             (identical(other.pzn, pzn) || other.pzn == pzn) &&
             (identical(other.amountMorning, amountMorning) ||
                 other.amountMorning == amountMorning) &&
+            (identical(other.amountMorningText, amountMorningText) ||
+                other.amountMorningText == amountMorningText) &&
             (identical(other.amountMidday, amountMidday) ||
                 other.amountMidday == amountMidday) &&
+            (identical(other.amountMiddayText, amountMiddayText) ||
+                other.amountMiddayText == amountMiddayText) &&
             (identical(other.amountEvening, amountEvening) ||
                 other.amountEvening == amountEvening) &&
+            (identical(other.amountEveningText, amountEveningText) ||
+                other.amountEveningText == amountEveningText) &&
             (identical(other.amountNight, amountNight) ||
                 other.amountNight == amountNight) &&
+            (identical(other.amountNightText, amountNightText) ||
+                other.amountNightText == amountNightText) &&
             (identical(other.amountInfo, amountInfo) ||
                 other.amountInfo == amountInfo) &&
             (identical(other.name, name) || other.name == name) &&
@@ -283,8 +355,22 @@ class _$_Medication extends _Medication {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, pzn, amountMorning, amountMidday,
-      amountEvening, amountNight, amountInfo, name, packageSize, info, reason);
+  int get hashCode => Object.hash(
+      runtimeType,
+      pzn,
+      amountMorning,
+      amountMorningText,
+      amountMidday,
+      amountMiddayText,
+      amountEvening,
+      amountEveningText,
+      amountNight,
+      amountNightText,
+      amountInfo,
+      name,
+      packageSize,
+      info,
+      reason);
 
   @JsonKey(ignore: true)
   @override
@@ -304,9 +390,13 @@ abstract class _Medication extends Medication {
   factory _Medication(
       {final String? pzn,
       final double? amountMorning,
+      final String? amountMorningText,
       final double? amountMidday,
+      final String? amountMiddayText,
       final double? amountEvening,
+      final String? amountEveningText,
       final double? amountNight,
+      final String? amountNightText,
       final String? amountInfo,
       final String? name,
       final int? packageSize,
@@ -322,11 +412,19 @@ abstract class _Medication extends Medication {
   @override
   double? get amountMorning;
   @override
+  String? get amountMorningText;
+  @override
   double? get amountMidday;
+  @override
+  String? get amountMiddayText;
   @override
   double? get amountEvening;
   @override
+  String? get amountEveningText;
+  @override
   double? get amountNight;
+  @override
+  String? get amountNightText;
   @override
   String? get amountInfo;
   @override

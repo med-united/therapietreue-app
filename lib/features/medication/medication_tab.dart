@@ -373,14 +373,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
-                                      amountMorning:
-                                          double.parse(val['m'] ?? '0'),
-                                      amountEvening:
-                                          double.parse(val['v'] ?? '0'),
-                                      amountMidday:
-                                          double.parse(val['md'] ?? '0'),
-                                      amountNight:
-                                          double.parse(val['n'] ?? '0'));
+                                      amountMorning: val.containsKey('m') ? getAmount(val['m']) : 0,
+                                      amountMorningText: val['m'] ?? '0',
+                                      amountMidday: val.containsKey('d') ? getAmount(val['d']) : 0,
+                                      amountMiddayText: val['d'] ?? '0',
+                                      amountEvening: val.containsKey('v') ? getAmount(val['v']) : 0,
+                                      amountEveningText: val['v'] ?? '0',
+                                      amountNight: val.containsKey('h') ? getAmount(val['h']) : 0,
+                                      amountNightText: val['h'] ?? '0');
 
                                   mediList.add(medication);
                                 }
@@ -392,14 +392,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                   reason: val1['M']['r'],
                                   info: val1['M']['i'],
                                   amountInfo: val1['M']['t'],
-                                  amountMorning:
-                                      double.parse(val1['M']['m'] ?? '0'),
-                                  amountEvening:
-                                      double.parse(val1['M']['v'] ?? '0'),
-                                  amountMidday:
-                                      double.parse(val1['M']['md'] ?? '0'),
-                                  amountNight:
-                                      double.parse(val1['M']['n'] ?? '0'));
+                                  amountMorning: val1['M'].containsKey('m') ? getAmount(val1['M']['m']) : 0,
+                                  amountMorningText: val1['M']['m'] ?? '0',
+                                  amountMidday: val1['M'].containsKey('d') ? getAmount(val1['M']['d']) : 0,
+                                  amountMiddayText: val1['M']['d'] ?? '0',
+                                  amountEvening: val1['M'].containsKey('v') ? getAmount(val1['M']['v']) : 0,
+                                  amountEveningText: val1['M']['v'] ?? '0',
+                                  amountNight: val1['M'].containsKey('h') ? getAmount(val1['M']['h']) : 0,
+                                  amountNightText: val1['M']['h'] ?? '0');
                               // showDebugErrorToast(medication.toString());
 
                               mediList.add(medication);
@@ -417,14 +417,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
-                                      amountMorning:
-                                          double.parse(val['m'] ?? '0'),
-                                      amountEvening:
-                                          double.parse(val['v'] ?? '0'),
-                                      amountMidday:
-                                          double.parse(val['md'] ?? '0'),
-                                      amountNight:
-                                          double.parse(val['n'] ?? '0'));
+                                      amountMorning: val.containsKey('m') ? getAmount(val['m']) : 0,
+                                      amountMorningText: val['m'] ?? '0',
+                                      amountMidday: val.containsKey('d') ? getAmount(val['d']) : 0,
+                                      amountMiddayText: val['d'] ?? '0',
+                                      amountEvening: val.containsKey('v') ? getAmount(val['v']) : 0,
+                                      amountEveningText: val['v'] ?? '0',
+                                      amountNight: val.containsKey('h') ? getAmount(val['h']) : 0,
+                                      amountNightText: val['h'] ?? '0');
 
                                   mediList.add(medication);
                                 } catch (err) {
@@ -439,14 +439,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                 reason: val1['M']['r'],
                                 info: val1['M']['i'],
                                 amountInfo: val1['M']['t'],
-                                amountMorning:
-                                    double.parse(val1['M']['m'] ?? '0'),
-                                amountEvening:
-                                    double.parse(val1['M']['v'] ?? '0'),
-                                amountMidday:
-                                    double.parse(val1['M']['md'] ?? '0'),
-                                amountNight:
-                                    double.parse(val1['M']['n'] ?? '0'));
+                                amountMorning: val1['M'].containsKey('m') ? getAmount(val1['M']['m']) : 0,
+                                amountMorningText: val1['M']['m'] ?? '0',
+                                amountMidday: val1['M'].containsKey('d') ? getAmount(val1['M']['d']) : 0,
+                                amountMiddayText: val1['M']['d'] ?? '0',
+                                amountEvening: val1['M'].containsKey('v') ? getAmount(val1['M']['v']) : 0,
+                                amountEveningText: val1['M']['v'] ?? '0',
+                                amountNight: val1['M'].containsKey('h') ? getAmount(val1['M']['h']) : 0,
+                                amountNightText: val1['M']['h'] ?? '0');
                             // showDebugErrorToast(medication.toString());
 
                             mediList.add(medication);
@@ -1063,4 +1063,19 @@ int formatMedicationPerDay(Medication medication) {
     count += 1;
   }
   return count;
+}
+
+double getAmount(amountText) {
+  if (amountText.contains('/')) {
+    return calculateAmountInFraction(amountText);
+  }
+  return double.parse(amountText);
+}
+
+double calculateAmountInFraction(fraction) {
+  List<String> parts = fraction.split('/');
+  if (double.parse(parts[1]) == 0) {
+    return 0;
+  }
+  return double.parse(parts[0]) / double.parse(parts[1]);
 }
