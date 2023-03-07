@@ -1090,14 +1090,48 @@ Widget buildSheet(medication) => Container(
   child: SizedBox(
     width: 330,
     child: Column(
-        children: [
-          Text(
-            '${medication.name}\n\ninfo: ${medication.info}\n\npackageSize: ${medication.packageSize}\n\namountMorning: ${medication.amountMorning}\tamountMorningText: ${medication.amountMorningText}\namountMidday: ${medication.amountMidday}\tamountMiddayText: ${medication.amountMiddayText}\namountEvening: ${medication.amountEvening}\tamountEveningText: ${medication.amountEveningText}\namountNight: ${medication.amountNight}\tamountNightText: ${medication.amountNightText}\n\n$medication',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(20, 25, 20, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '${medication.name}',
+              style: ThemeConstants.primaryFont.copyWith(fontSize: 22, fontWeight: FontWeight.normal),
             ),
           ),
-        ]),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '\ninfo: ${medication.info}',
+              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'packageSize: ${medication.packageSize}\n',
+              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '$medication',
+              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            ),
+          ),
+        ),
+      ],
+    ),
   ),
 );
