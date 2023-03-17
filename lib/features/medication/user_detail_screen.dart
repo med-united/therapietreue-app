@@ -1,16 +1,24 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:therapietreu/core/utils/debug_tools.dart';
+import 'package:therapietreu/features/medication/domain/doctor.dart';
 import 'package:therapietreu/features/medication/medication_tab.dart';
+import 'package:therapietreu/features/user/domain/user.dart';
 import 'package:therapietreu/ui/theme/theme_colors.dart';
 import 'package:therapietreu/ui/theme/theme_navigation_bar.dart';
 import 'package:therapietreu/ui/theme/theme_primary_button.dart';
 import 'package:therapietreu/ui/theme/theme_scaffold.dart';
 import 'package:therapietreu/ui/theme/theme_text.dart';
 import 'package:therapietreu/ui/theme/theme_textfield.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:hive/hive.dart';
+
+import 'domain/medication.dart';
+import 'domain/medication_plan.dart';
 
 String morning = "8:00";
 String midday = "12:00";
@@ -33,19 +41,28 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
     TextEditingController bdayController = TextEditingController();
     bdayController.text = "13.06.1951";
     return ThemeScaffold(
-        navigationBar: ThemeNavigationBar(
-          context,
-          title: "",
-          leading: [
-            Material(
-              child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            )
-          ],
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            color: ThemeColors.primaryColor,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.3,
+            child: Image.asset(
+              'assets/images/logo.png',
+            ),
+          ),
+          bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(4.0),
+              child: Container(
+                color: ThemeColors.secondaryColor,
+                height: 1.0,
+              )),
         ),
         child: SingleChildScrollView(
           child: Column(
@@ -53,51 +70,46 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
               Padding(
                 padding: const EdgeInsets.only(
                     right: 32, left: 32, top: 32, bottom: 32),
-                child: Material(
-                  elevation: 2,
-                  shape: CircleBorder(),
-                  child: CircleAvatar(
-                    radius: 82,
-                    backgroundColor: ThemeColors.primaryColor,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: () async {
-                        final ImagePicker picker = ImagePicker();
-                        // Pick an image
+                child: CircleAvatar(
+                  radius: 82,
+                  backgroundColor: ThemeColors.primaryColor,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () async {
+                      final ImagePicker picker = ImagePicker();
+                      // Pick an image
 
-                        // showDebugErrorToast(picker.toString());
-                        final XFile? image =
-                            await picker.pickImage(source: ImageSource.gallery);
+                      // showDebugErrorToast(picker.toString());
+                      final XFile? image =
+                      await picker.pickImage(source: ImageSource.gallery);
 
-                        final prefs = await SharedPreferences.getInstance();
-                        await prefs.setString("image", image!.path);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setString("image", image!.path);
 
-                        setState(() {
-                          path = image.path;
-                        });
-                      },
-                      child: CircleAvatar(
-                        radius: 80,
-                        backgroundImage: FileImage(File(path)),
-                        backgroundColor: ThemeColors.primaryColor,
-                        child: ThemeBodySText(
-                          (path == "") ? "Bild \n hinzufügen" : "",
-                          textAlign: TextAlign.center,
-                          textColor: Colors.white,
-                        ),
+                      setState(() {
+                        path = image.path;
+                      });
+                    },
+                    child: CircleAvatar(
+                      radius: 80,
+                      backgroundImage: FileImage(File(path)),
+                      backgroundColor: ThemeColors.primaryColor,
+                      child: ThemeBodySText(
+                        (path == "") ? "Bild \n hinzufügen" : "",
+                        textAlign: TextAlign.center,
+                        textColor: Colors.white,
                       ),
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
                 child: Column(
                   children: [
                     ThemeTextfield(
-                      padding: EdgeInsets.all(8.0),
                       backgroundColor: const Color(0xffebf2f7),
-                      hint: "Name",
+                      hint: "  Name",
                       controller: nameController,
                     ),
                     ThemePrimaryButton(
@@ -118,14 +130,14 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 ),
               ),
               const SizedBox(
-                height: 32,
+                height: 0,
               ),
               ThemeHeadlineSText("Benachrichtigungszeiten"),
               const SizedBox(
-                height: 16,
+                height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: GestureDetector(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -166,7 +178,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: GestureDetector(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -206,7 +218,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: GestureDetector(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -246,7 +258,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: GestureDetector(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -283,6 +295,28 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
                       },
                     ); */
                   },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    ThemePrimaryButton(
+                      onPressed: () async {
+                        final prefs = await SharedPreferences.getInstance();
+                        await Hive.close();
+                        Directory appDir = await getApplicationDocumentsDirectory();
+                        await Directory(appDir.path).delete(recursive: true);
+
+                        await prefs.setString("name", "");
+                        await prefs.setString("image", "");
+
+                        await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                      },
+                      title: "I want to remove all my data",
+                      textColor: Colors.white,
+                    )
+                  ],
                 ),
               ),
             ],

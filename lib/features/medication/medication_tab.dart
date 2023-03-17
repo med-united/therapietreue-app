@@ -213,22 +213,14 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                       flex: 2,
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 32, top: 32, bottom: 32),
-                        child: FittedBox(child: ThemeTitleLText("Hallo $name")),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Material(
-                          elevation: 2,
-                          shape: CircleBorder(),
-                          child: CircleAvatar(
-                            radius: 52,
-                            backgroundColor: ThemeColors.primaryColor,
-                            child: GestureDetector(
-                              behavior: HitTestBehavior.translucent,
+                            left: 32, top: 22, bottom: 22, right: 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            FittedBox(child: ThemeTitleLText("Hallo $name")),
+                            SizedBox(height: 5),
+                            GestureDetector(
                               onTap: () {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(
@@ -242,22 +234,50 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                           path = path;
                                         }));
                               },
-                              child: CircleAvatar(
-                                radius: 51,
-                                backgroundImage:
-                                    FileImage(File(snapshot.data[1])),
-                                backgroundColor: ThemeColors.primaryColor,
-                                child: ThemeBodySText(
-                                  (path == "") ? "Bild \n hinzufügen" : "",
-                                  textAlign: TextAlign.center,
-                                  textColor: Colors.white,
-                                ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Profil bearbeiten",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: ThemeColors.primaryColor),
+                                  ),
+                                  SizedBox(width: 4),
+                                  Icon(Icons.edit,
+                                      size: 14,
+                                      color: ThemeColors.primaryColor),
+                                ],
                               ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 22, bottom: 22, right: 0),
+                        child: Material(
+                          elevation: 2,
+                          shape: CircleBorder(),
+                          child: CircleAvatar(
+                            radius: 52,
+                            backgroundColor: ThemeColors.primaryColor,
+                            child: CircleAvatar(
+                              radius: 51,
+                              backgroundImage: (snapshot.data[1] != '')
+                                  ? FileImage(File(snapshot.data[1]))
+                                  : const AssetImage(
+                                          'assets/images/profile.png')
+                                      as ImageProvider<Object>,
                             ),
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 );
               },
@@ -373,13 +393,21 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
-                                      amountMorning: val.containsKey('m') ? getAmount(val['m']) : 0,
+                                      amountMorning: val.containsKey('m')
+                                          ? getAmount(val['m'])
+                                          : 0,
                                       amountMorningText: val['m'] ?? '0',
-                                      amountMidday: val.containsKey('d') ? getAmount(val['d']) : 0,
+                                      amountMidday: val.containsKey('d')
+                                          ? getAmount(val['d'])
+                                          : 0,
                                       amountMiddayText: val['d'] ?? '0',
-                                      amountEvening: val.containsKey('v') ? getAmount(val['v']) : 0,
+                                      amountEvening: val.containsKey('v')
+                                          ? getAmount(val['v'])
+                                          : 0,
                                       amountEveningText: val['v'] ?? '0',
-                                      amountNight: val.containsKey('h') ? getAmount(val['h']) : 0,
+                                      amountNight: val.containsKey('h')
+                                          ? getAmount(val['h'])
+                                          : 0,
                                       amountNightText: val['h'] ?? '0');
 
                                   mediList.add(medication);
@@ -392,13 +420,21 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                   reason: val1['M']['r'],
                                   info: val1['M']['i'],
                                   amountInfo: val1['M']['t'],
-                                  amountMorning: val1['M'].containsKey('m') ? getAmount(val1['M']['m']) : 0,
+                                  amountMorning: val1['M'].containsKey('m')
+                                      ? getAmount(val1['M']['m'])
+                                      : 0,
                                   amountMorningText: val1['M']['m'] ?? '0',
-                                  amountMidday: val1['M'].containsKey('d') ? getAmount(val1['M']['d']) : 0,
+                                  amountMidday: val1['M'].containsKey('d')
+                                      ? getAmount(val1['M']['d'])
+                                      : 0,
                                   amountMiddayText: val1['M']['d'] ?? '0',
-                                  amountEvening: val1['M'].containsKey('v') ? getAmount(val1['M']['v']) : 0,
+                                  amountEvening: val1['M'].containsKey('v')
+                                      ? getAmount(val1['M']['v'])
+                                      : 0,
                                   amountEveningText: val1['M']['v'] ?? '0',
-                                  amountNight: val1['M'].containsKey('h') ? getAmount(val1['M']['h']) : 0,
+                                  amountNight: val1['M'].containsKey('h')
+                                      ? getAmount(val1['M']['h'])
+                                      : 0,
                                   amountNightText: val1['M']['h'] ?? '0');
                               // showDebugErrorToast(medication.toString());
 
@@ -417,13 +453,21 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                       reason: val['r'],
                                       info: val['i'],
                                       amountInfo: val['t'],
-                                      amountMorning: val.containsKey('m') ? getAmount(val['m']) : 0,
+                                      amountMorning: val.containsKey('m')
+                                          ? getAmount(val['m'])
+                                          : 0,
                                       amountMorningText: val['m'] ?? '0',
-                                      amountMidday: val.containsKey('d') ? getAmount(val['d']) : 0,
+                                      amountMidday: val.containsKey('d')
+                                          ? getAmount(val['d'])
+                                          : 0,
                                       amountMiddayText: val['d'] ?? '0',
-                                      amountEvening: val.containsKey('v') ? getAmount(val['v']) : 0,
+                                      amountEvening: val.containsKey('v')
+                                          ? getAmount(val['v'])
+                                          : 0,
                                       amountEveningText: val['v'] ?? '0',
-                                      amountNight: val.containsKey('h') ? getAmount(val['h']) : 0,
+                                      amountNight: val.containsKey('h')
+                                          ? getAmount(val['h'])
+                                          : 0,
                                       amountNightText: val['h'] ?? '0');
 
                                   mediList.add(medication);
@@ -439,13 +483,21 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                 reason: val1['M']['r'],
                                 info: val1['M']['i'],
                                 amountInfo: val1['M']['t'],
-                                amountMorning: val1['M'].containsKey('m') ? getAmount(val1['M']['m']) : 0,
+                                amountMorning: val1['M'].containsKey('m')
+                                    ? getAmount(val1['M']['m'])
+                                    : 0,
                                 amountMorningText: val1['M']['m'] ?? '0',
-                                amountMidday: val1['M'].containsKey('d') ? getAmount(val1['M']['d']) : 0,
+                                amountMidday: val1['M'].containsKey('d')
+                                    ? getAmount(val1['M']['d'])
+                                    : 0,
                                 amountMiddayText: val1['M']['d'] ?? '0',
-                                amountEvening: val1['M'].containsKey('v') ? getAmount(val1['M']['v']) : 0,
+                                amountEvening: val1['M'].containsKey('v')
+                                    ? getAmount(val1['M']['v'])
+                                    : 0,
                                 amountEveningText: val1['M']['v'] ?? '0',
-                                amountNight: val1['M'].containsKey('h') ? getAmount(val1['M']['h']) : 0,
+                                amountNight: val1['M'].containsKey('h')
+                                    ? getAmount(val1['M']['h'])
+                                    : 0,
                                 amountNightText: val1['M']['h'] ?? '0');
                             // showDebugErrorToast(medication.toString());
 
@@ -620,7 +672,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                   ),
                 ),
                 Positioned.fill(
-                  top: 16,
+                  top: 8,
                   child: ListView.builder(
                     itemCount: (medPlan?.medication?.length ?? 0) + 2,
                     itemBuilder: (BuildContext context, int index) {
@@ -633,147 +685,151 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                       if (medication != null) {
                         return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 32, top: 7, right: 32, bottom: 7),
-                            child: Material(
-                              elevation: 2,
-                              borderRadius: BorderRadius.circular(16),
-                              child: GestureDetector(
-                                onTap: () => showModalBottomSheet(
-                                    context: context,
-                                    builder: (context) => buildSheet(medication)
-                                ),
-                                child: Container(
-                            height: 80,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(left: 8),
-                                  child: CircularPercentIndicator(
-                                      radius: 40.0,
-                                      animation: true,
-                                      animationDuration: 1000,
-                                      lineWidth: 3.0,
-                                      percent: (medication.packageSize == 0) ||
-                                              (((medication.amountMorning ??
-                                                          0) +
-                                                      (medication
-                                                              .amountMidday ??
-                                                          0) +
-                                                      (medication
-                                                              .amountEvening ??
-                                                          0) +
-                                                      (medication
-                                                              .amountNight ??
-                                                          0)) ==
-                                                  0.0)
-                                          ? 0.0
-                                          : (medication
-                                                      .packageSize ??
-                                                  0 /
-                                                          (medication
+                          padding: const EdgeInsets.only(
+                              left: 32, top: 7, right: 32, bottom: 7),
+                          child: Material(
+                            elevation: 2,
+                            borderRadius: BorderRadius.circular(16),
+                            child: GestureDetector(
+                              onTap: () => showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => buildSheet(medication)),
+                              child: Container(
+                                height: 80,
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(16))),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 8),
+                                      child: CircularPercentIndicator(
+                                          radius: 40.0,
+                                          animation: true,
+                                          animationDuration: 1000,
+                                          lineWidth: 3.0,
+                                          percent: (medication.packageSize ==
+                                                      0) ||
+                                                  (((medication
                                                                   .amountMorning ??
                                                               0) +
-                                                      (medication
-                                                              .amountMidday ??
-                                                          0) +
-                                                      (medication
-                                                              .amountEvening ??
-                                                          0) +
-                                                      (medication.amountNight ??
-                                                          0)) /
-                                              medication.packageSize!,
-                                      center: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          ThemeBodyBText(
-                                            (medication.packageSize == 0) ||
-                                                    (((medication
-                                                                    .amountMorning ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountMidday ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountEvening ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountNight ??
-                                                                0)) ==
-                                                        0.0)
-                                                ? "-"
-                                                : (medication.packageSize ??
-                                                        0 /
-                                                                (medication
+                                                          (medication
+                                                                  .amountMidday ??
+                                                              0) +
+                                                          (medication
+                                                                  .amountEvening ??
+                                                              0) +
+                                                          (medication
+                                                                  .amountNight ??
+                                                              0)) ==
+                                                      0.0)
+                                              ? 0.0
+                                              : (medication.packageSize ??
+                                                      0 /
+                                                              (medication
+                                                                      .amountMorning ??
+                                                                  0) +
+                                                          (medication
+                                                                  .amountMidday ??
+                                                              0) +
+                                                          (medication
+                                                                  .amountEvening ??
+                                                              0) +
+                                                          (medication
+                                                                  .amountNight ??
+                                                              0)) /
+                                                  medication.packageSize!,
+                                          center: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              ThemeBodyBText(
+                                                (medication.packageSize == 0) ||
+                                                        (((medication
                                                                         .amountMorning ??
                                                                     0) +
-                                                            (medication
-                                                                    .amountMidday ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountEvening ??
-                                                                0) +
-                                                            (medication
-                                                                    .amountNight ??
-                                                                0))
-                                                    .toString(),
-                                            textAlign: TextAlign.center,
+                                                                (medication
+                                                                        .amountMidday ??
+                                                                    0) +
+                                                                (medication
+                                                                        .amountEvening ??
+                                                                    0) +
+                                                                (medication
+                                                                        .amountNight ??
+                                                                    0)) ==
+                                                            0.0)
+                                                    ? "-"
+                                                    : (medication.packageSize ??
+                                                            0 /
+                                                                    (medication
+                                                                            .amountMorning ??
+                                                                        0) +
+                                                                (medication
+                                                                        .amountMidday ??
+                                                                    0) +
+                                                                (medication
+                                                                        .amountEvening ??
+                                                                    0) +
+                                                                (medication
+                                                                        .amountNight ??
+                                                                    0))
+                                                        .toString(),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              ThemeBodyLText(
+                                                "Tage",
+                                                textAlign: TextAlign.center,
+                                              )
+                                            ],
                                           ),
-                                          ThemeBodyLText(
-                                            "Tage",
-                                            textAlign: TextAlign.center,
-                                          )
+                                          circularStrokeCap:
+                                              CircularStrokeCap.butt,
+                                          backgroundColor:
+                                              ThemeColors.secondaryColor,
+                                          progressColor:
+                                              ThemeColors.secondaryColorDark),
+                                    ),
+                                    const SizedBox(
+                                      width: 24,
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.5,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          ThemeBodyBText(
+                                            medication.name ?? '-',
+                                            maxLines: 2,
+                                          ),
+                                          if (formatMedicationPerDay(
+                                                  medication) !=
+                                              0)
+                                            ThemeBodyLText(
+                                                "${formatMedicationPerDay(medication)} x täglich"),
                                         ],
                                       ),
-                                      circularStrokeCap: CircularStrokeCap.butt,
-                                      backgroundColor:
-                                          ThemeColors.secondaryColor,
-                                      progressColor:
-                                          ThemeColors.secondaryColorDark),
+                                    )
+                                  ],
                                 ),
-                                const SizedBox(
-                                  width: 24,
-                                ),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      ThemeBodyBText(
-                                        medication.name ?? '-',
-                                        maxLines: 2,
-                                      ),
-                                      if (formatMedicationPerDay(medication) !=
-                                          0)
-                                        ThemeBodyLText(
-                                            "${formatMedicationPerDay(medication)} x täglich"),
-                                    ],
-                                  ),
-                                )
-                              ],
+                              ),
                             ),
                           ),
-                          ),
-                            ),
                         );
                       } else if ((index !=
                           (medPlan?.medication?.length ?? 0))) {
                         return Padding(
                           padding: const EdgeInsets.only(
-                              left: 32, top: 10, right: 32, bottom: 10),
+                              left: 32, top: 10, right: 32, bottom: 8),
                           child: Material(
                             elevation: 2,
                             borderRadius: BorderRadius.circular(16),
@@ -1087,51 +1143,55 @@ double calculateAmountInFraction(fraction) {
 }
 
 Widget buildSheet(medication) => Container(
-  child: SizedBox(
-    width: 330,
-    child: Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 25, 20, 0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '${medication.name}',
-              style: ThemeConstants.primaryFont.copyWith(fontSize: 22, fontWeight: FontWeight.normal),
+      child: SizedBox(
+        width: 330,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 25, 20, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '${medication.name}',
+                  style: ThemeConstants.primaryFont
+                      .copyWith(fontSize: 22, fontWeight: FontWeight.normal),
+                ),
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '\ninfo: ${medication.info}',
-              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '\ninfo: ${medication.info}',
+                  style: ThemeConstants.primaryFont
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                ),
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'packageSize: ${medication.packageSize}\n',
-              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'packageSize: ${medication.packageSize}\n',
+                  style: ThemeConstants.primaryFont
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                ),
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '$medication',
-              style: ThemeConstants.primaryFont.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '$medication',
+                  style: ThemeConstants.primaryFont
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
-      ],
-    ),
-  ),
-);
+      ),
+    );

@@ -7,14 +7,14 @@ import 'theme_colors.dart';
 import 'theme_constants.dart';
 
 class ThemeScaffold extends StatelessWidget {
-  final ObstructingPreferredSizeWidget? navigationBar;
+  final AppBar? appBar;
   final Widget child;
   final Color? backgroundColor;
   final bool safeAreaTop;
   final bool safeAreaBottom;
 
   ThemeScaffold(
-      {this.navigationBar,
+      {this.appBar,
       required this.child,
       this.backgroundColor,
       this.safeAreaTop = true,
@@ -28,11 +28,11 @@ class ThemeScaffold extends StatelessWidget {
       value: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
       ),
-      child: CupertinoPageScaffold(
-        navigationBar: navigationBar,
+      child: Scaffold(
+        appBar: appBar,
         backgroundColor:
             backgroundColor ?? ThemeColors.primaryBackgroundColor(context),
-        child: SafeArea(top: safeAreaTop, bottom: safeAreaBottom, child: child),
+        body: SafeArea(top: safeAreaTop, bottom: safeAreaBottom, child: child),
       ),
     );
   }
