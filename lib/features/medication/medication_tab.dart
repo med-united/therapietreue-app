@@ -976,7 +976,8 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                     child: GestureDetector(
                                       behavior: HitTestBehavior.translucent,
                                       onTap: () async {
-                                        String? barcodeScanRes =
+                                        showFeatureDisabledDialog(context);
+                                        /*String? barcodeScanRes =
                                             await MajaScan.startScan(
                                                 title: "PZN-Scanner",
                                                 barColor: Colors.white,
@@ -991,12 +992,12 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
 
                                         print(
                                             "----- barcodeScanRes: $barcodeScanRes");
-                                        /*        await FlutterBarcodeScanner
+                                        *//*        await FlutterBarcodeScanner
                                               .scanBarcode(
                                                   "#ff6666",
                                                   "Abbrechen",
                                                   true,
-                                                  ScanMode.BARCODE); */
+                                                  ScanMode.BARCODE); *//*
 
                                         if (barcodeScanRes != "-1") {
                                           // showDebugErrorToast(barcodeScanRes);
@@ -1022,7 +1023,7 @@ class _MedicationTabState extends ConsumerState<MedicationTab> {
                                             showDebugErrorToast(
                                                 "Not found Product");
                                           }
-                                        }
+                                        }*/
                                       },
                                       child: Column(
                                         children: [
