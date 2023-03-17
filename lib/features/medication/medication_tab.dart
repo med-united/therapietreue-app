@@ -1181,7 +1181,7 @@ Widget buildSheet(medication) => Container(
                 ),
               ),
             ),
-            Padding(
+            /*Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Align(
                 alignment: Alignment.centerLeft,
@@ -1191,7 +1191,7 @@ Widget buildSheet(medication) => Container(
                       .copyWith(fontSize: 16, fontWeight: FontWeight.normal),
                 ),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
