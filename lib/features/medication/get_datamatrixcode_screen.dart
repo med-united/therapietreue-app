@@ -81,7 +81,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                         .copyWith(fontSize: 24, fontWeight: FontWeight.normal),
                   ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
                   child: buildButton(
