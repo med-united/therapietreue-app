@@ -66,7 +66,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
               Image.asset(
                 'assets/images/scanning-datamatrix.gif',
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: 34),
               Container(
                 width: 350,
                 height: 40,
@@ -81,30 +81,48 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                         .copyWith(fontSize: 24, fontWeight: FontWeight.normal),
                   ),
               ),
-              const SizedBox(height: 20),
-              buildButton(
-                title: 'Fotogalerie',
-                icon: Icons.image_outlined,
-                onClicked: () => pickImage(ImageSource.gallery, context),
+              const SizedBox(height: 30),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
+                  child: buildButton(
+                    title: 'aus Fotogalerie',
+                    icon: Icons.image_outlined,
+                    onClicked: () => pickImage(ImageSource.gallery, context),
+                  ),
               ),
-              Spacer(flex: 6),
-              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('\t\t\t\t\t\t\t\t\t\t\t\tVorhandenes Foto von DataMatrix-Code hinzufügen',
-                    style: ThemeConstants.primaryFont
-                        .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
-              ]),
-              const SizedBox(height: 24),
-              buildButton(
-                title: 'Kamera',
-                icon: Icons.camera_alt_outlined,
-                onClicked: () => pickImage(ImageSource.camera, context),
+              Center(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Vorhandenes Foto von DataMatrix-Code hinzufügen',
+                          style: ThemeConstants.primaryFont.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal)
+                      ),
+                    ],
+                ),
               ),
-              Spacer(flex: 6),
-              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('\t\t\t\t\t\t\t\t\t\t\t\tDataMatrix-Code fotografieren',
-                    style: ThemeConstants.primaryFont
-                        .copyWith(fontSize: 13, fontWeight: FontWeight.normal))
-              ]),
+              const SizedBox(height: 34),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
+                child: buildButton(
+                  title: 'von der Kamera',
+                  icon: Icons.camera_alt_outlined,
+                  onClicked: () => pickImage(ImageSource.camera, context),
+                ),
+              ),
+              Center(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('DataMatrix-Code fotografieren',
+                          style: ThemeConstants.primaryFont.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal)
+                      ),
+                    ],
+                ),
+              ),
               Spacer(flex: 4),
               const SizedBox(height: 44),
             ],
@@ -116,22 +134,25 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
           required VoidCallback onClicked}) =>
       ElevatedButton(
         style: ElevatedButton.styleFrom(
-          fixedSize: Size(300, 56),
+          fixedSize: Size(230, 56),
           foregroundColor: Colors.white,
           backgroundColor: ThemeColors.primaryColor,
           elevation: 2,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(26),
           ),
           textStyle: ThemeConstants.primaryFont
               .copyWith(fontSize: 19, fontWeight: FontWeight.normal),
         ),
-        child: Row(
-          children: [
-            Icon(icon, size: 28),
-            const SizedBox(width: 16),
-            Text(title, style: ThemeConstants.primaryFont),
-          ],
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 28),
+              const SizedBox(width: 8),
+              Text(title, style: ThemeConstants.primaryFont),
+            ],
+          ),
         ),
         onPressed: onClicked,
       );
