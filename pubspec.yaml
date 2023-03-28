@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.8+8
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: ">=2.18.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,18 +30,18 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cached_network_image: null
-  cloud_firestore: null
-  cloud_functions: null
+  cloud_firestore: ^4.4.5
+  cloud_functions: ^4.0.13
   cupertino_icons: ^1.0.2
   enum_to_string: null
-#  firebase_analytics: null
-  firebase_auth: null
-  firebase_core: null
-  firebase_messaging: null
-  firebase_storage: null
+  #  firebase_analytics: null
+  firebase_auth: ^4.3.0
+  firebase_core: ^2.8.0
+  firebase_messaging: ^14.3.0
+  firebase_storage: ^11.0.16
   flutter:
     sdk: flutter
-  flutter_local_notifications: null
+  flutter_local_notifications: ^13.0.0
   flutter_localizations:
     sdk: flutter
   flutter_platform_widgets: null
@@ -49,7 +49,7 @@ dependencies:
   fluttertoast: ^8.2.1
   freezed_annotation: null
   google_fonts: null
-  google_sign_in: null
+  google_sign_in: ^6.0.2
   hive: null
   hive_flutter: null
   intl: ^0.17.0
@@ -70,7 +70,7 @@ dependencies:
   http: ^0.13.5
   flutter_cupertino_date_picker: null
   flutter_barcode_scanner: null
-  google_ml_vision: null
+  google_ml_vision: ^0.0.8
   camera: null
   path_provider: null
   path: null
@@ -102,7 +102,6 @@ flutter_icons:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
