@@ -71,34 +71,41 @@ class PrivacyPolicyScreen extends StatelessWidget {
               'Verantwortlich für die Verarbeitung Ihrer personenbezogenen Daten ist die',
               style: TextStyle(fontSize: 16.0),
             ),
-            SizedBox(height: 8.0),
+            SizedBox(height: 16.0),
             Container(
               width: double.infinity,
-              height: 120.0,
               color: ThemeColors.secondaryColor,
               child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Row(children: [
-                  Text(
-                    'Incentergy GmbH\nAchenseeweg 50\nD-12209 Berlin\nTelefon\n+49 – 173 632 2621\nE-Mail info@incentergy.de\t\t\t\t\t',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(bottom: 16.0),
+                      child: Text(
+                        'Incentergy GmbH\nAchenseeweg 50\nD-12209 Berlin\nTelefon +49 – 173 632 2621\nE-Mail info@incentergy.de',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Sitz der Gesellschaft:\nBerlin – Handelsregister\nAmtsgericht Berlin\n(Charlottenburg)\nHRB214370\nUSt-IdNr: DE301069501',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
+                    Container(
+                      child: Text(
+                        'Sitz der Gesellschaft:\nBerlin – Handelsregister Amtsgericht Berlin\n(Charlottenburg) HRB214370\nUSt-IdNr: DE301069501',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
                     ),
-                  ),
-                ]),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 8.0),
+            SizedBox(height: 16.0),
             Text(
               'Geschäftsführer:\nManuel Blechschmidt, David Matthaei',
               style: TextStyle(fontSize: 16.0),
