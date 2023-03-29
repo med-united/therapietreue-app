@@ -78,7 +78,7 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                   child: Text(
                     'DataMatrix-Code scannen',
                     style: ThemeConstants.primaryFont
-                        .copyWith(fontSize: 24, fontWeight: FontWeight.normal),
+                        .copyWith(fontSize: 26, fontWeight: FontWeight.w500),
                   ),
               ),
               const SizedBox(height: 20),
@@ -123,8 +123,6 @@ class _GetDataMatrixCodeScreenState extends State<GetDataMatrixCodeScreen> {
                     ],
                 ),
               ),
-              Spacer(flex: 4),
-              const SizedBox(height: 44),
             ],
           )));
 
