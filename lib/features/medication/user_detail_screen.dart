@@ -313,7 +313,7 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
 
                         await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
                       },
-                      title: "I want to remove all my data",
+                      title: "Ich möchte alle meine Daten löschen",
                       textColor: Colors.white,
                     )
                   ],
